@@ -1,0 +1,357 @@
+Version 2.0
+scopetrigger
+0
+mot3dcamera
+0
+pushbeam
+0
+blue3dmot
+0
+zcor
+0
+greennarrow
+0
+greenimage
+0
+gmload
+0
+tweezeraod
+0
+imageshutter
+0
+gmmove
+0
+rb1
+0
+rb2
+0
+rb3
+0
+shutter680
+0
+op
+0
+blue3dmotshutter
+0
+greenimagedoppshutter
+0
+greenshutter
+0
+slmshutter
+0
+shutter532
+0
+gm2
+0
+greenmotshutter
+0
+greenbroad
+0
+dio4.0
+0
+dio4.1
+0
+dio4.2
+0
+dio4.3
+0
+dio4.4
+0
+dio4.5
+0
+dio4.6
+0
+dio4.7
+0
+clocksamphold
+0
+uvled
+0
+clockawg
+0
+specrb3
+0
+ddsreset
+0
+chooserb2spec
+0
+specrb2
+0
+uv
+0
+gsqubitshutter
+0
+xrot
+0
+zrot
+0
+awgtrigger
+0
+tweezerslm
+0
+clock
+0
+awgsbspec
+0
+clockrepump
+0
+uvshutter
+0
+greenimagedopp
+0
+uvsamplehold
+0
+dio7.3
+0
+dio7.4
+0
+dio7.5
+0
+dio7.6
+0
+ddstrigger
+0
+cameratrig
+0
+uvcamera
+0
+axialcool
+0
+xcor
+0
+awgtrigger2
+0
+metazrot
+0
+metaxrot
+0
+dio8.7
+0
+motcoil
+0 - 2.55
+0
+x1coil
+-10 - 10
+0
+y1coil
+-10 - 10
+0
+z1coil
+-10 - 10
+0
+tweezerdepth
+-10 - 10
+0
+slmdepth
+-10 - 10
+0
+clockpiezohor
+-4 - 4
+0
+clockpiezover
+-4 - 4
+0
+gszrotpiezohor
+0 - 10
+0
+gszrotpiezover
+0 - 10
+0
+uvpiezohor
+0 - 10
+0
+uvpiezover
+0 - 10
+0
+uvintservo
+0 - 10
+0
+dac13
+-10 - 0
+0
+clockpow
+-0.1 - 0.1
+0
+y680
+0 - 10
+0
+lspower
+-10 - 10
+0
+x2coil
+-10 - 10
+0
+y2coil
+-10 - 10
+0
+z2coil
+-10 - 10
+0
+motfreq
+-10 - 10
+0
+repumpfreq
+-10 - 10
+0
+sidemotpower
+-10 - 10
+0
+piezomirror
+-10 - 10
+0
+gsxrotpiezohor
+0 - 10
+0
+gsxrotpiezover
+0 - 10
+0
+metaxrotpiezohor
+-0 - 10
+0
+metaxrotpiezover
+-0 - 10
+0
+metazrotpiezohor
+-0 - 10
+0
+dac29
+-0 - 10
+0
+dac30
+-10 - 10
+0
+dac31
+-10 - 10
+0
+dds0
+10 - 200
+0
+0 - 100
+100
+dds1
+10 - 200
+0
+0 - 100
+100
+dds2
+10 - 200
+0
+0 - 100
+100
+dds3
+10 - 200
+0
+0 - 100
+100
+dds4
+10 - 200
+80
+0 - 100
+100
+dds5
+10 - 200
+0
+0 - 100
+100
+dds6
+10 - 200
+0
+0 - 100
+100
+dds7
+10 - 200
+0
+0 - 100
+100
+dds8
+10 - 200
+0
+0 - 100
+100
+dds9
+10 - 200
+0
+0 - 100
+100
+dds10
+10 - 200
+0
+0 - 100
+100
+dds11
+10 - 200
+0
+0 - 100
+100
+70
+bluemotcoil 1.1
+bluex 0.12
+bluey 0.25
+bluez -0.3
+greenmotcoil 0.2
+blueloadtime 150
+greenbroadloadtime 15
+greennarrowloadtime 15
+coolfreq 94.6251
+coolpower 55.1467
+cooltime 2
+greennarrowfreq 82.6
+greennarrowpower 2.13
+greennarrowpowerstart 15
+bluefreq 110
+bluepower 30
+comploadtime 75
+greenpower 45
+greentime 3.5
+greenfreq 71.1
+loadtime 35
+loadfreq 94.5
+depth -1.98
+axialcoolfreq 70.4857
+axialcoolpower 41
+slmpowerfactor 1.92
+xmagic 2.45
+ymagic 0.745
+img_depth -4.23365
+overhead_depth -9.9
+filter_depth -0.0736
+spec_depth -0.5324
+xzero 0.049142
+yzero 0.0159294
+zzero -0.133749
+blowaway_depth -0.1
+ramsey_depth -0.147
+ramptime 6
+yclock 0.958873
+loadpower 67.97
+dds2_factor 1.00911
+load_depth -4.23365
+waittime 0.5
+zop 0.073478
+yop -0.0363
+axisrottime 1.5
+xclock 0.0476406
+zclock -0.034584
+xqubit -0.837053
+yqubit 4.7409
+zqubit -0.0903879
+yclockpi -0.0154
+zclockpi -0.13794
+xclockpi 2.45
+gmcfreq 96.0993
+gmcpower 56.1681
+gmc_depth -1.777
+axisrottime2 20
+zqubitpi 0.051959
+yqubitpi 0.27027
+xqubitpi 2.45
+ramptime2 4.5
+axisrottime3 5
+imagefreq2 71.18
+axialpower2 1.5
+radialpower2 27.5
+imagetime2 30
+img_depth2 -3
+clockdepth -0.1
+xbiasload 2.45
+90 450 1 215 235 1

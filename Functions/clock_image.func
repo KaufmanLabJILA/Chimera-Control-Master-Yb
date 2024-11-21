@@ -1,0 +1,36 @@
+% Master-Script See the "?" for info on commands.
+def clock_image():
+  % insert commands here...
+%on: imageshutter
+on: greenshutter
+ddsamp: dds4 100
+t += 5
+ddsamp: dds6 100
+t += 5
+dac: greenrad greenpower
+t += 1
+dac: greenaxial axialcoolpower
+t += 1
+dacramp: slmdepth clockdepth  img_depth 4
+
+t += 4.1
+pulseon: imgservo 0.001
+
+t += 2/1000
+on: cameratrig
+on: greenimage
+on: axialcool
+t += greentime
+off: axialcool
+off: greenimage
+off: cameratrig
+dac: greenrad 0
+t += 1
+dac: greenaxial 0
+t += 1
+%off: imageshutter
+off: greenshutter
+ddsamp: dds4 0
+t += 5
+ddsamp: dds6 0
+t += 5

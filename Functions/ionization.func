@@ -1,0 +1,9 @@
+% Master-Script See the "?" for info on commands.
+def ionization(ion_time):
+  % insert commands here...
+on: ionization
+pulseon: awgtrigger2 0.0001
+t += awgtrigtime2/1000
+t += 0.001
+t += ion_time/1000
+off: ionization

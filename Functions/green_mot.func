@@ -1,0 +1,17 @@
+% Master-Script See the "?" for info on commands.
+def green_mot():
+  % insert commands here...
+on: greenbroad % green on
+
+dac: motcoil greenmotcoil
+
+t += greenbroadloadtime532
+
+off: greenbroad
+
+on: greennarrow
+
+ddsrampamp: dds7 greennarrowpowerstart greennarrowpower532 15
+
+t += greennarrowloadtime532
+

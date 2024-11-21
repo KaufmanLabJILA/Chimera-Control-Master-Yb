@@ -1,0 +1,23 @@
+% Master-Script See the "?" for info on commands.
+def uv_ghz(uv_time, uv_pi_time):
+  % insert commands here...
+% Master-Script See the "?" for info on commands.
+
+off: tweezerslm
+
+t += 0.001
+pulseon: awgtrigger2 0.0001
+on: uv
+on: metaxrot
+t += awgtrigtime2/1000
+t += 0.001
+t += (uv_time)/1000
+pulseon: awgtrigger 0.0001
+t += 0.08/1000+metaxrottime/1000
+t += uv_pi_time/1000
+on: tweezerslm
+
+
+
+off: uv
+off: metaxrot

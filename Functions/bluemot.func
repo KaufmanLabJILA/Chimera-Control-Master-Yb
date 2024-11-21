@@ -1,0 +1,16 @@
+% Master-Script See the "?" for info on commands.
+def bluemot():
+  % insert commands here...
+on: pushbeam
+on: blue3dmot
+on: blue3dmotshutter
+off: uvled
+
+call init() 
+
+t += blueloadtime532-22
+
+off: pushbeam %push beam off
+off: blue3dmot
+off: blue3dmotshutter
+on: uvled

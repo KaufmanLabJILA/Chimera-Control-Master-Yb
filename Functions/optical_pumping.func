@@ -1,0 +1,9 @@
+% Master-Script See the "?" for info on commands.
+def optical_pumping(pump_time):
+  % insert commands here...
+on: greenshutter
+t += 3.3
+on: op
+t += pump_time
+off: op
+off: greenshutter

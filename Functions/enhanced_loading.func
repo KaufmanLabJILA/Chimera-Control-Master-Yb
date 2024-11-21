@@ -1,0 +1,15 @@
+% Master-Script See the "?" for info on commands.
+def enhanced_loading():
+  % insert commands here...
+ddsfreq: dds7 loadfreq532
+t += 5
+ddsamp: dds7 loadpower532
+
+
+t += loadtime532
+off: greennarrow
+
+ddsfreq: dds7 coolfreq
+t += 5
+ddsamp: dds7 coolpower
+t += 5

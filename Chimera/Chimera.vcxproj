@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BDB7E898-2F81-4410-90C7-0BD4D3212AF8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>NIPXIe5451ArbWvFmGen20</RootNamespace>
+    <ProjectName>Chimera</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files (x86)\IVI Foundation\VISA\WinNt\include;C:\Program Files (x86)\IVI Foundation\IVI\Include;$(ProjectDir)\Packages\32-Bit-Libs\Debug\HDF5-1.10.1-win32-Debug\include;$(ProjectDir)\Packages\boost_1_64_0;C:\ProgramData\Anaconda3\include;C:\Users\KLab\Desktop\Chimera-Control-Master\Chimera\Packages\32-Bit-Libs\Debug\HDF5-1.10.1-win32-Debug\include;C:\Users\KLab\Desktop\Chimera-Control-Master\Chimera\Packages\boost_1_64_0;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <LibraryPath>C:\Program Files\Newport\Newport_USB_Driver\Lib;C:\Program Files\DCAMAPI;C:\Program Files\Andor SOLIS\Drivers;C:\Users\Mark\Documents\Quantum Gas Assembly Control\Chimera;$(ProjectDir)\Packages\boost_1_64_0\lib-32bit;C:\Program Files (x86)\National Instruments\NI-DAQ\DAQmx ANSI C Dev\lib\msvc;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\lib\msc;$(ProjectDir)\Packages\32-Bit-Libs\Debug\HDF5-1.10.1-win32-Debug\lib;$(ProjectDir)\Packages\32-Bit-Libs\DIO64;$(ProjectDir)\Packages\32-Bit-Libs\Debug\Python;$(ProjectDir)\Packages\32-Bit-Libs\Debug\Andor;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ProjectDir)\Packages\32-Bit-Libs\Debug\Python;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files\Newport\Newport_USB_Driver\Include;C:\Program Files\dcamsdk4;C:\Users\klab\AppData\Local\Programs\Python\Python312\include;B:\Yb heap\Experiment_code_Yb\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Debug\HDF5-1.10.1-win64\include;B:\Yb heap\Experiment_code_Yb\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0;C:\Users\klab\anaconda3\include;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0;$(IncludePath);C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Debug\HDF5-1.10.1-win64\include;C:\Program Files\Andor SDK</IncludePath>
+    <LibraryPath>C:\Program Files\Newport\Newport_USB_Driver\Lib;C:\Program Files\dcamsdk4;C:\Users\klab\AppData\Local\Programs\Python\Python312\libs;C:\Users\klab\AppData\Local\Programs\Python\Python312;C:\Users\klab\AppData\Local\Programs\Python\Python312\DLLs;B:\Yb heap\Experiment_code_Yb\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Debug\HDF5-1.10.1-win64\lib;B:\Yb heap\Experiment_code_Yb\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0\lib-64bit;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0\lib-64bit;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Debug\HDF5-1.10.1-win64\lib;$(ProjectDir)\Packages\64-Bit-Libs\Debug\Python;C:\Program Files\Andor SDK;$(LibraryPath);C:\Program Files (x86)\National Instruments\Shared\ExternalCompilerSupport\C\lib64\msvc;C:\Users\klab\anaconda3\libs</LibraryPath>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH)</ExecutablePath>
+    <ExcludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x64);</ExcludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IncludePath>C:\Program Files\Newport\Newport_USB_Driver\Include;C:\Program Files\DCAMAPI;C:\Program Files (x86)\IVI Foundation\VISA\WinNt\include;C:\Program Files (x86)\IVI Foundation\IVI\Include;$(IncludePath);C:\ProgramData\Anaconda3\include;C:\Program Files\Andor SOLIS\Drivers;$(ProjectDir)\Packages\boost_1_64_0;$(ProjectDir)\Packages\32-Bit-Libs\Release\HDF5-1.10.1-win32-Release\include;C:\Program Files (x86)\Anaconda3\include</IncludePath>
+    <LibraryPath>C:\Program Files\Newport\Newport_USB_Driver\Lib;C:\Program Files\DCAMAPI;C:\Program Files\DCAMAPI;C:\Program Files\Andor SOLIS\Drivers;C:\Users\Mark\Documents\Quantum Gas Assembly Control\Chimera;C:\Program Files (x86)\National Instruments\NI-DAQ\DAQmx ANSI C Dev\lib\msvc;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\lib\msc;C:\Program Files (x86)\IVI Foundation\IVI\Lib\msc;C:\Program Files (x86)\HDF_Group\HDF5\Release\HDF5-1.10.1-win32\lib;$(ProjectDir)\Packages\boost_1_64_0\lib-32bit;$(ProjectDir)\Packages\32-Bit-Libs\Release\HDF5-1.10.1-win32-Release\lib;$(ProjectDir)\Packages\32-Bit-Libs\Release\Python;$(ProjectDir)\Packages\32-Bit-Libs\DIO64;$(ProjectDir)\Packages\32-Bit-Libs\Release\Andor;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Program Files\Newport\Newport_USB_Driver\Include;C:\Program Files\dcamsdk4;C:\Users\klab\anaconda3\include;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0;$(IncludePath);C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Release\HDF5-1.10.1-win64\include;C:\Program Files\Andor SDK</IncludePath>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>C:\Program Files\Newport\Newport_USB_Driver\Lib;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\boost_1_64_0\lib-64bit;C:\Users\klab\Documents\Chimera-Control-Master\Chimera\Packages\64-Bit-Libs\Release\HDF5-1.10.1-win64\lib;$(ProjectDir)\Packages\64-Bit-Libs\Release\Python;C:\Program Files\Andor SDK;C:\Program Files\dcamsdk4;$(LibraryPath);C:\Program Files (x86)\National Instruments\Shared\ExternalCompilerSupport\C\lib64\msvc;C:\Users\klab\anaconda3\libs</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>usbdll.lib;dcamapi.lib;atmcd32m.lib;legacy_stdio_definitions.lib;niFgen.lib;%(AdditionalDependencies);python36_d.lib;NIDAQmx.lib;dio64_32.lib;visa32.lib;libhdf5_cpp_D.lib;libhdf5_D.lib;libzlib_D.lib;libszip_D.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(NIIVIPATH)\Lib\msc;$(PXIPNPPATH)\winnt\Lib\msc;</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;NO_WARN_MBCS_MFC_DEPRECATION;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ShowIncludes>false</ShowIncludes>
+      <UseFullPaths>false</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\Andor SDK3</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\dcamsdk4</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\Newport\Newport_USB_Driver\Lib</AdditionalLibraryDirectories>
+      <TreatLinkerWarningAsErrors>
+      </TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>usbdll.lib;dcamapi.lib;atmcd64m.lib;python36_d.lib;libhdf5_cpp_D.lib;libhdf5_D.lib;libzlib_D.lib;libszip_D.lib;NIDAQmx.lib;ftd2xx.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files\boost\boost_1_58_0\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>usbdll.lib;NIDAQmx.lib;dio64_32.lib;niFgen.lib;dcamapi.lib;atmcd32m.lib;visa32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies);python36.lib;libzlib.lib;libszip.lib;libhdf5_cpp.lib;libhdf5.lib</AdditionalDependencies>
+      <HeapReserveSize>1000000000</HeapReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32; NO_WARN_MBCS_MFC_DEPRECATION;NDEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\Program Files\Newport\Newport_USB_Driver\Include;C:\Users\Public\Documents\Allied Vision\Vimba_4.2\VimbaCPP_Examples;C:\Program Files\Allied Vision\Vimba_4.2\ThirdParty\TinyXML\Include;C:\Program Files\Allied Vision\Vimba_4.2;C:\Program Files\Allied Vision\Vimba_4.2\VimbaCPP\Bin\Win64;C:\Program Files\Andor SDK3;C:\Program Files\dcamsdk4</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files\Newport\Newport_USB_Driver\Lib;C:\Program Files\Allied Vision\Vimba_4.2\VimbaCPP\Lib\Win64;C:\Program Files\Allied Vision\Vimba_4.2\ThirdParty\TinyXML\Lib\Win64;C:\Program Files\Allied Vision\Vimba_4.2\VimbaCPP\Bin\Win64;C:\Program Files\Andor SDK3;C:\Program Files\dcamsdk4;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>usbdll.lib;dcamapi.lib;atmcd64m.lib;python36.lib;libhdf5_cpp.lib;libhdf5.lib;libzlib.lib;libszip.lib;NIDAQmx.lib;ftd2xx.lib</AdditionalDependencies>
+      <HeapReserveSize>
+      </HeapReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AlertSystem.h" />
+    <!-- <ClInclude Include="AndorRunSettings.h" /> -->
+    <ClInclude Include="qcmosRunSettings.h" />
+    <ClInclude Include="threadSafeQueue.h" />
+    <ClInclude Include="ATMCD32D.H" />
+    <ClInclude Include="dcamapi4.h" />
+    <ClInclude Include="dcamprop.h" />
+    <ClInclude Include="atomCruncher.h" />
+    <ClInclude Include="atomGrid.h" />
+    <ClInclude Include="awgCommand.h" />
+    <ClInclude Include="beginningSettingsDialogProc.h" />
+    <ClInclude Include="BoostAsyncSerial.h" />
+    <ClInclude Include="BoostUDP.h" />
+    <ClInclude Include="CameraImageDimensions.h" />
+    <ClInclude Include="cameraPositions.h" />
+    <ClInclude Include="CameraSettingsControl.h" />
+    <ClInclude Include="CameraWindow.h" />
+    <ClInclude Include="cleanString.h" />
+    <ClInclude Include="cnpy.h" />
+    <ClInclude Include="ColorBox.h" />
+    <ClInclude Include="commonTypes.h" />
+    <ClInclude Include="Communicator.h" />
+    <ClInclude Include="DacStructures.h" />
+    <ClInclude Include="EDacStructures.h" />
+    <ClInclude Include="DdsState.h" />
+    <ClInclude Include="DDSStructures.h" />
+    <ClInclude Include="NewportUSB.h" />
+    <ClInclude Include="PicoScrewSystem.h" />
+    <ClInclude Include="DDSSystem.h" />
+    <ClInclude Include="DDS_SYNTH.h" />
+    <ClInclude Include="DebugOptionsControl.h" />
+    <ClInclude Include="Expression.h" />
+    <ClInclude Include="fpgaAWG.h" />
+    <ClInclude Include="GigaMoog.h" />
+    <ClInclude Include="MasterThreadInput.h" />
+    <ClInclude Include="MessagePrinter.h" />
+    <ClInclude Include="MessageSender.h" />
+    <ClInclude Include="Messagetypes.h" />
+    <ClInclude Include="moveSequence.h" />
+    <ClInclude Include="profileSettings.h" />
+    <ClInclude Include="ProfileSystem.h" />
+    <ClInclude Include="DacSettingsDialog.h" />
+    <ClInclude Include="DacSystem.h" />
+    <ClInclude Include="EDacSystem.h" />
+    <ClInclude Include="DataLogger.h" />
+    <ClInclude Include="PlotDataSet.h" />
+    <ClInclude Include="EmbeddedPythonHandler.h" />
+    <ClInclude Include="ExperimentTimer.h" />
+    <ClInclude Include="gnuplot-iostream.h" />
+    <ClInclude Include="gnuplotter.h" />
+    <ClInclude Include="imageParameters.h" />
+    <ClInclude Include="longnam.h" />
+    <ClInclude Include="MainOptionsControl.h" />
+    <!-- <ClInclude Include="Andor.h" /> -->
+    <ClInclude Include="qcmos.h" />
+    <ClInclude Include="MasterConfiguration.h" />
+    <ClInclude Include="AuxiliaryWindow.h" />
+    <ClInclude Include="MasterManager.h" />
+    <ClInclude Include="miscellaneousCommonFunctions.h" />
+    <ClInclude Include="ChimeraApp.h" />
+    <ClInclude Include="PictureControl.h" />
+    <ClInclude Include="PictureManager.h" />
+    <ClInclude Include="PictureSettingsControl.h" />
+    <ClInclude Include="PictureStats.h" />
+    <ClInclude Include="DataAnalysisHandler.h" />
+    <ClInclude Include="PlotDesignerDialog.h" />
+    <ClInclude Include="PlottingInfo.h" />
+    <ClInclude Include="ProfileIndicator.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="Control.h" />
+    <ClInclude Include="externals.h" />
+    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="IdleSequence.h" />
+    <ClInclude Include="realTimePlotterInput.h" />
+    <ClInclude Include="rearrangementStructures.h" />
+    <ClInclude Include="rearrangementThreadInput.h" />
+    <ClInclude Include="rearrangeParams.h" />
+    <ClInclude Include="RearrangeControl.h" />
+    <ClInclude Include="Repetitions.h" />
+    <ClInclude Include="rerngContainer.h" />
+    <ClInclude Include="rerngControl.h" />
+    <ClInclude Include="rerngMove.h" />
+    <ClInclude Include="rerngParams.h" />
+    <ClInclude Include="rerngStructures.h" />
+    <ClInclude Include="rerngthreadinput.h" />
+    <ClInclude Include="NoteSystem.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="ScriptingWindow.h" />
+    <ClInclude Include="ScriptStream.h" />
+    <ClInclude Include="Segment.h" />
+    <ClInclude Include="SerialSynth.h" />
+    <ClInclude Include="SmsTextingControl.h" />
+    <ClInclude Include="splashDialog.h" />
+    <ClInclude Include="StatusControl.h" />
+    <ClInclude Include="StatusIndicator.h" />
+    <ClInclude Include="TestWin.h" />
+    <ClInclude Include="TextPromptDialog.h" />
+    <ClInclude Include="fonts.h" />
+    <ClInclude Include="commonFunctions.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="saveTextFileFromEdit.h" />
+    <ClInclude Include="scriptWriteHelpProc.h" />
+    <ClInclude Include="ScriptWritingInstructionsDialog.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="DioSettingsDialog.h" />
+    <ClInclude Include="DioSystem.h" />
+    <ClInclude Include="tinyPlotInfo.h" />
+    <ClInclude Include="traceoutput.h" />
+    <ClInclude Include="VariableStructures.h" />
+    <ClInclude Include="VariableSystem.h" />
+    <ClInclude Include="ZynqTCP.h" />
+    <ClInclude Include="zynq_tcp_server.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AlertSystem.cpp" />
+    <ClCompile Include="atomCruncher.cpp" />
+    <ClCompile Include="beginningSettingsDialogProc.cpp" />
+    <ClCompile Include="BoostAsyncSerial.cpp" />
+    <ClCompile Include="BoostUDP.cpp" />
+    <ClCompile Include="CameraImageDimensions.cpp" />
+    <ClCompile Include="CameraSettingsControl.cpp" />
+    <ClCompile Include="CameraWindow.cpp" />
+    <ClCompile Include="cleanString.cpp" />
+    <ClCompile Include="cnpy.cpp" />
+    <ClCompile Include="ColorBox.cpp" />
+    <ClCompile Include="Communicator.cpp" />
+    <ClCompile Include="NewportUSB.cpp" />
+    <ClCompile Include="PicoScrewSystem.cpp" />
+    <ClCompile Include="DDSSystem.cpp" />
+    <ClCompile Include="DDS_SYNTH.cpp" />
+    <ClCompile Include="DebugOptionsControl.cpp" />
+    <ClCompile Include="Expression.cpp" />
+    <ClCompile Include="fpgaAWG.cpp" />
+    <ClCompile Include="GigaMoog.cpp" />
+    <ClCompile Include="MessagePrinter.cpp" />
+    <ClCompile Include="MessageSender.cpp" />
+    <ClCompile Include="openWithExplorer.cpp" />
+    <ClCompile Include="ProfileSystem.cpp" />
+    <ClCompile Include="Control.cpp" />
+    <ClCompile Include="DacSettingsDialog.cpp" />
+    <ClCompile Include="DacSystem.cpp" />
+    <ClCompile Include="EDacSystem.cpp" />
+    <ClCompile Include="DataLogger.cpp" />
+    <ClCompile Include="PlotDataSet.cpp" />
+    <ClCompile Include="EmbeddedPythonHandler.cpp" />
+    <ClCompile Include="ExperimentTimer.cpp" />
+    <ClCompile Include="externals.cpp" />
+    <ClCompile Include="Gnuplotter.cpp" />
+    <ClCompile Include="MainOptionsControl.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="IdleSequence.cpp" />
+    <!-- <ClCompile Include="Andor.cpp" /> -->
+    <ClCompile Include="qcmos.cpp" />
+    <ClCompile Include="MasterConfiguration.cpp" />
+    <ClCompile Include="AuxiliaryWindow.cpp" />
+    <ClCompile Include="MasterManager.cpp" />
+    <ClCompile Include="NoteSystem.cpp" />
+    <ClCompile Include="PictureControl.cpp" />
+    <ClCompile Include="PictureManager.cpp" />
+    <ClCompile Include="PictureSettingsControl.cpp" />
+    <ClCompile Include="PictureStats.cpp" />
+    <ClCompile Include="DataAnalysisHandler.cpp" />
+    <ClCompile Include="PlotDesignerDialog.cpp" />
+    <ClCompile Include="PlottingInfo.cpp" />
+    <ClCompile Include="ProfileIndicator.cpp" />
+    <ClCompile Include="RearrangeControl.cpp" />
+    <ClCompile Include="Repetitions.cpp" />
+    <ClCompile Include="rerngControl.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="ScriptingWindow.cpp" />
+    <ClCompile Include="ScriptStream.cpp" />
+    <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="SerialSynth.cpp" />
+    <ClCompile Include="SmsTextingControl.cpp" />
+    <ClCompile Include="splashDialog.cpp" />
+    <ClCompile Include="StatusControl.cpp" />
+    <ClCompile Include="StatusIndicator.cpp" />
+    <ClCompile Include="tcp_client.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tcp_server.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestWin.cpp" />
+    <ClCompile Include="TextPromptDialog.cpp" />
+    <ClCompile Include="commonFunctions.cpp" />
+    <ClCompile Include="ChimeraApp.cpp" />
+    <ClCompile Include="saveTextFileFromEdit.cpp" />
+    <ClCompile Include="miscellaneousCommonFunctions.cpp" />
+    <ClCompile Include="ScriptWritingInstructionsDialog.cpp" />
+    <ClCompile Include="DioSettingsDialog.cpp" />
+    <ClCompile Include="DioSystem.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="traceoutput.cpp" />
+    <ClCompile Include="VariableSystem.cpp" />
+    <ClCompile Include="ZynqTCP.cpp" />
+    <ClCompile Include="zynq_tcp_server.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\JILA.bmp" />
+    <Image Include="Atom.ico" />
+    <Image Include="bitmap2.bmp" />
+    <Image Include="bitmap3.bmp" />
+    <Image Include="C:\Users\Regal Lab\Pictures\boseeinstein.ico" />
+    <Image Include="Cold_Atoms_Icon.ico" />
+    <Image Include="icon1.ico" />
+    <Image Include="Icon2.ico" />
+    <Image Include="JILA.bmp" />
+    <Image Include="klab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Chimera.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Planning.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="coordinate.h" />
+    <None Include="DioStructures.h" />
+    <None Include="ftbusui.dll" />
+    <None Include="ftcserco.dll" />
+    <None Include="ftd2xx64.dll" />
+    <None Include="ftlang.dll" />
+    <None Include="ftserui2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ftd2xx.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,18 @@
+% Master-Script See the "?" for info on commands.
+def raman_sideband_coolCal_rb3():
+  % insert commands here...
+
+on: greenshutter
+t += 8
+
+
+
+pulseon: awgtrigger 0.0001
+t += 0.4/1000
+on: rb1
+on: rb3 %switch to rb2 for rb2 spec
+t += 2*rb3time/1000
+off: rb3 %switch to rb2 for rb2 spec
+off: rb1
+
+off: greenshutter

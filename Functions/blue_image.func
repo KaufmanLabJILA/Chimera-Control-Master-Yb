@@ -1,0 +1,13 @@
+% Master-Script See the "?" for info on commands.
+def blue_image(blue_time):
+  % insert commands here...
+on: blueimageshutter
+
+
+t += 2.6
+pulseon: cameratrig 0.1
+t += 1
+on: blueimage
+t += blue_time
+off: blueimage
+off: blueimageshutter

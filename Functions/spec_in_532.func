@@ -1,0 +1,49 @@
+% Master-Script See the "?" for info on commands.
+def spec_in_532(_freq, _power, _time, _depth):
+  % insert commands here...
+on: greenshutter
+on: greenmotshutter
+
+dac: tweezerdepth 0.1
+
+on: shutter532
+t += 12
+
+dacramp: tweezerdepth 0.1 _depth 2
+t += 3
+
+dacramp: slmdepth img_depth 0.1  2 
+t += 2 
+on: slmsamplehold
+t += 0.1
+off: tweezerslm
+t += 0.1
+
+ddsfreq: dds4 _freq
+t += 5
+ddsamp: dds4 _power
+t += 5
+
+on: greenimage
+t += _time
+off: greenimage
+
+ddsfreq: dds4 greenfreq
+t += 5
+ddsamp: dds4 0
+t += 5
+
+on: tweezerslm
+t += 0.1
+off: slmsamplehold
+t += 0.1
+dacramp: slmdepth 0.1 img_depth 2
+t += 3 
+dacramp: tweezerdepth _depth  0.1  2
+t += 2
+
+
+off: tweezeraod
+off: shutter532
+off: greenshutter
+off: greenmotshutter

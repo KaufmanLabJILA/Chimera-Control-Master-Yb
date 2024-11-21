@@ -1,0 +1,26 @@
+% Master-Script See the "?" for info on commands.
+def imagelong():
+  % insert commands here...
+% Master-Script See the "?" for info on commands.
+on: imageshutter
+on: greenshutter
+ddsamp: dds6 axialcoolpower
+t += 5
+ddsamp: dds4 greenpower
+t += 7
+
+on: cameratrig
+on: greenimage
+on: axialcool
+t += greentime
+t +=  6
+off: axialcool
+off: greenimage
+
+off: cameratrig
+ddsamp: dds6 0
+t += 5
+ddsamp: dds4 0
+t += 7
+off: imageshutter
+off: greenshutter

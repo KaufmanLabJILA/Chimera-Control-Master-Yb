@@ -1,0 +1,26 @@
+% Master-Script See the "?" for info on commands.
+def spec556cavity():
+  % insert commands here...
+ddsamp: dds4 0
+t += 5
+ddsamp: dds6 0
+on: greenshutter
+ddsfreq: dds4 specfreq
+t += 5
+dac: greenrad 1
+ddsamp: dds4 2
+t += 5
+
+on: greenimage
+t += 2.5
+off: greenimage
+
+ddsfreq: dds4 greenfreq
+t += 5
+ddsamp: dds4 100
+t += 5
+ddsamp: dds6 100
+dac: greenrad 0
+t += 5
+off: greenshutter
+

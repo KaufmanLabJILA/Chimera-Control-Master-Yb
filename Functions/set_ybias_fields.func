@@ -1,0 +1,7 @@
+% Master-Script See the "?" for info on commands.
+% Master-Script See the "?" for info on commands.
+def set_ybias_fields(ystart,yend,bias_ramptime):
+  % insert commands here...
+
+dacramp: y1coil yzero+ystart yzero+yend bias_ramptime
+dacramp: y2coil -yzero-ystart -xzero-yend bias_ramptime

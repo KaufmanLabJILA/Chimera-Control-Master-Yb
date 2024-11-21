@@ -1,0 +1,9 @@
+% Master-Script See the "?" for info on commands.
+def filter(_filterdepth, _time):
+  % insert commands here...
+
+dacramp: slmdepth img_depth _filterdepth  2 
+t += 2 
+t += _time
+dacramp: slmdepth _filterdepth  img_depth 2
+t += 2 

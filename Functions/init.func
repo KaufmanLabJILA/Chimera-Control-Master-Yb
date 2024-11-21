@@ -1,0 +1,90 @@
+% Master-Script See the "?" for info on commands.
+def init():
+  % insert commands here...
+on: tweezeraod
+on: tweezerslm
+on: slmshutter
+on: shutter532
+%including meta repump
+on: clockrepump
+on: metaxrot
+on: metasampleswitch
+off: blueimage
+off: blueimageshutter
+on: uvled
+dac: uvintservo uvsample
+dac: metasampledac metaxsample
+%dac: clockpow clocksampleval
+dac: clockpow c_rabi*c_rabi*c_amp/10000
+
+edac: Vy+Vx+Vz Vy-Vx+Vz -Vy+Vx+Vz -Vy-Vx+Vz -Vy+Vx-Vz -Vy-Vx-Vz Vy+Vx-Vz Vy-Vx-Vz
+
+t += 1
+off: imageshutter
+
+pulseon: gmload 0.0001
+pulseon: ddsreset 0.001 %snapshot 0
+
+
+off: op
+off: rb1
+off: rb2
+off: rb3
+off: clock
+
+% awg switches
+off: specrb2
+off: specrb3
+off: chooserb2spec
+%off: ionization
+off: imgservo
+
+dac: clockpiezohor clockhorpos 
+dac: clockpiezover clockverpos 
+
+dac: gsxrotpiezohor xrothorpos 
+dac: gsxrotpiezover xrotverpos 
+
+dac: gszrotpiezohor zrothorpos  
+dac: gszrotpiezover zrotverpos 
+
+dac: metaxrotpiezover metaxrotverpos
+dac: metaxrotpiezohor metaxrothorpos 
+
+dac: greenrad 0
+dac: greenaxial 0
+t += 2
+
+ddsfreq: dds0 95 %unknown
+ddsfreq: dds4 greenfreq
+ddsfreq: dds8 110*dds2_factor   %ionization
+t += 5
+ddsamp: dds0 metaxrotamp
+ddsamp: dds4 0
+ddsamp: dds8 100
+t += 5
+ddsfreq: dds1 100
+ddsfreq: dds5 pumpfreq %op
+ddsfreq: dds9 80*dds2_factor %AOD servo never scan
+t += 5
+ddsamp: dds1 rb1amp
+ddsamp: dds5 pumppower %1
+ddsamp: dds9 100
+t += 5
+ddsfreq: dds2 110
+ddsfreq: dds6 axialcoolfreq
+ddsfreq: dds10 80*dds2_factor %servo AO, never scan
+t += 5
+ddsamp: dds2 100 %rb2
+ddsamp: dds6 0
+ddsamp: dds10 100
+t += 5
+ddsfreq: dds3 100 %rb1
+ddsfreq: dds7 greennarrowfreq532 %green single freq
+ddsfreq: dds11 dds2_factor*uvfreq
+t += 5
+ddsamp: dds3 xrotamp %rb1
+ddsamp: dds7 greennarrowpowerstart
+ddsamp: dds11 uvamp
+
+

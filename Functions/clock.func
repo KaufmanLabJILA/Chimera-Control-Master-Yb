@@ -1,0 +1,10 @@
+% Master-Script See the "?" for info on commands.
+def clock(window_time):
+  % insert commands here...
+on: clock
+pulseon: awgtrigger 0.0001
+
+t += window_time/1000
+off: clock
+
+%t += 2

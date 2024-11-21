@@ -1,0 +1,31 @@
+% Master-Script See the "?" for info on commands.
+def raman_sideband_spec_rb3():
+  % insert commands here...
+%on: awgsbspec
+on: specrb3 
+off: specrb2 %uncomment me for rb2 spectroscopy
+off: chooserb2spec %switch to on for rb2
+
+on: greenshutter
+
+ddsamp: dds1 30 %rb1 (comment out to check cool params)
+t += 5
+ddsfreq: dds1 100 
+t += 5
+
+on: rb1
+on: rb3 %switch to rb2 for rb2 spec
+
+pulseon: awgtrigger2 0.001
+t += 0.4/1000
+t += 2*rbtime/1000
+off: rb3 %switch to rb2 for rb2 spec
+off: rb1
+
+ddsamp: dds1 rb1amp %rb1
+t += 5
+
+off: greenshutter
+off: specrb3
+%off: awgsbspec
+

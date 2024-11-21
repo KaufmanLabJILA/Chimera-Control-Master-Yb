@@ -1,0 +1,17 @@
+% Master-Script See the "?" for info on commands.
+def clocksample():
+  % insert commands here...
+pulseon: ddstrigger 0.001 %snapshot 1
+t += 3.3
+on: clocksampleswitch
+on: clock
+t += 0.5
+on: clocksamplehold
+%pulseon: scopetrigger 0.0128
+t += 0.2
+off: clock
+off: clocksampleswitch
+
+pulseon: ddstrigger 0.001 %snapshot 2
+
+

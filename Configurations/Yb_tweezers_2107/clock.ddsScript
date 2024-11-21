@@ -1,0 +1,44 @@
+% Channel order:
+
+% XXX  clocksample Clockint XXXX uvsample ioncamera metaxrot MetaSample  
+
+snapshot 0 %repump for image
+amps  100 0 0 100 0 0 0 100
+
+freqs 100 clockfreq 80 rffreq 200 80 95 95
+
+snapshot 1 %clock sample
+
+amps  100 85 100 100 0 0 100 100
+
+freqs 100 clockfreq 80 rffreq 200 80 95 95
+
+snapshot 2 %no clock, no UV, no meta
+
+amps  100 0 0 100 0 0 0 100
+
+freqs 100 clockfreq+5 80 rffreq 200 80 95 95
+
+snapshot 3 %sample and hold for meta/uv
+
+amps  100 0 0 100 uvamp 0 0 100
+
+freqs 100 clockfreq+5  80 rffreq 200 80 95 95
+
+snapshot 4 %no ioncam/no uv/yes meta
+
+amps  100 0 0 100 0 0   100 0
+
+freqs 100 clockfreq+5  80 rffreq 200 200 95 95
+
+snapshot 5 %yes ioncam/no meta/no uv
+
+amps  100 0 0 100 0 100  0 0
+
+freqs 100 clockfreq+5  80 rffreq 200 200 95 95
+
+end %50
+%
+
+%NOTE: steady state value is hard coded in Chimera!!!
+%%67

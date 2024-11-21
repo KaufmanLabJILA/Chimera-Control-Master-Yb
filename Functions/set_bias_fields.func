@@ -1,0 +1,9 @@
+% Master-Script See the "?" for info on commands.
+def set_bias_fields(xstart,xend,ystart,yend,zstart,zend,bias_ramptime):
+  % insert commands here...
+dacramp: x1coil xzero+xstart xzero+xend bias_ramptime
+dacramp: x2coil -xzero-xstart -xzero-xend bias_ramptime
+dacramp: y1coil yzero+ystart yzero+yend bias_ramptime
+dacramp: y2coil -yzero-ystart -yzero-yend bias_ramptime
+dacramp: z1coil zzero+zstart zzero+zend bias_ramptime
+dacramp: z2coil -zzero-zstart -zzero-zend bias_ramptime

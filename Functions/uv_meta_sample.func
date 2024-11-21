@@ -1,0 +1,38 @@
+% Master-Script See the "?" for info on commands.
+def uv_meta_sample():
+  % insert commands here...
+
+
+pulseon: ddstrigger 0.001 %snapshot 3
+
+on: clockrepump
+on: uvshutter
+t += 3.3
+
+on: metasampleswitch
+on: metaxrot
+on: uvawgsample
+on: uv
+pulseon: awgtrigger2 0.0001
+
+t += 25/1000
+
+t += 1/2*uvsampletime/1000
+%camera_img
+on: uvcamera 
+t += 4/1000
+off: uvcamera
+
+t += 1/2*uvsampletime/1000-0.2 
+on: uvmetasamplehold
+
+t += 2
+
+off: uv 
+off: uvawgsample 
+off: metaxrot
+off: metasampleswitch
+t += 0.1
+pulseon: ddstrigger 0.001 %snapshot 4
+off: uvshutter
+off: clockrepump

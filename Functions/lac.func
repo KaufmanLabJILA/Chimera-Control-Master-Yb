@@ -1,0 +1,29 @@
+% Master-Script See the "?" for info on commands.
+def lac():
+  % insert commands here...
+ddsamp: dds4 100
+t += 5
+ddsamp: dds6 100
+t += 5
+dac: greenrad greenpower
+t += 1
+dac: greenaxial axialcoolpower
+t += 1
+pulseon: imgservo 0.001
+t += 2/1000
+on: greenshutter
+on: greenimage
+on: axialcool
+t += 15
+off: axialcool
+off: greenimage
+off: greenshutter
+dac: greenrad 0
+t += 1
+dac: greenaxial 0
+t += 1
+ddsamp: dds4 0
+t += 5
+ddsamp: dds6 0
+t += 5
+

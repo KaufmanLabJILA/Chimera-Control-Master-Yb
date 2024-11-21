@@ -1,0 +1,44 @@
+% Master-Script See the "?" for info on commands.
+def tworow_arbscrunchx():
+  % insert commands here...
+on: greenshutter
+on: greenmotshutter
+
+dac: tweezerdepth holddepth532
+t += 1
+on: rrsamplehold
+t += 1
+pulseon: gmmove 0.00011 %turn off 
+t += 0.5
+
+dac: tweezerdepth 0.1
+
+on: shutter532
+t += 12
+
+repeat: 2
+
+pulseon: gmmove 0.00011 %turns on
+t += 1
+
+dacramp: slmdepth img_depth holddepth759  2 
+t += 2 
+pulseon: gmmove 0.00011 %move
+t += 6
+dacramp: slmdepth holddepth759  img_depth 2
+t += 2  
+
+pulseon: gmmove 0.00011 %turn off
+t += 1
+
+on: greennarrow
+t += cooltime
+off: greennarrow
+
+end
+
+off: rrsamplehold
+off: tweezeraod
+off: shutter532
+off: greenshutter
+off: greenmotshutter

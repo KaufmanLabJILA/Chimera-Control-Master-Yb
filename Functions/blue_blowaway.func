@@ -1,0 +1,8 @@
+% Master-Script See the "?" for info on commands.
+def blue_blowaway():
+  % insert commands here...
+on: blue3dmotshutter
+on: blue3dmot
+t += 5
+off: blue3dmotshutter
+off: blue3dmot
