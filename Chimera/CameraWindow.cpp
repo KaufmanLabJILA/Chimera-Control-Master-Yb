@@ -1180,7 +1180,7 @@ void CameraWindow::prepareAtomCruncher(ExperimentInput& input)
 	input.cruncherInput->skipNext = &skipNext;
 	input.cruncherInput->imageQueue = &imageQueue;
 	try {
-		//load masks from .npy file
+		//loading masks from .npy file
 		cnpy::NpyArray arrMasks = cnpy::npy_load(MASKS_FILE_LOCATION);
 		input.cruncherInput->masks = arrMasks.as_vec<int16>(); //load masks as a flattened list of longs (row major), passing by pointer to first element.
 		input.cruncherInput->nMask = arrMasks.shape[0];
