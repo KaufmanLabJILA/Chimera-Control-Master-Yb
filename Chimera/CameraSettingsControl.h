@@ -5,6 +5,7 @@
 #include "CameraImageDimensions.h"
 // #include "Andor.h"
 #include "qcmos.h"
+#include "Constants.h"
 
 struct cameraPositions;
 
@@ -43,7 +44,7 @@ public:
 	void handleModeChange(CameraWindow* cameraWindow);
 	qcmosRunSettings getSettings();
 	void setImageParameters(imageParameters newSettings, CameraWindow* camWin);
-	std::array<int, 4> getThresholds();
+	std::array<int, totalMaxPictures> getThresholds();
 	void updatePassivelySetSettings();
 	void setRunSettings(qcmosRunSettings inputSettings);
 

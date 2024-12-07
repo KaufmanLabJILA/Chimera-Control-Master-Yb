@@ -17,7 +17,7 @@ public:
 	void setPictureArea(POINT loc, int width, int height);
 	void setSliderLocations(CWnd* parent);
 	void drawPicture(CDC* deviceContext, std::vector<long> picData,
-		std::tuple<bool, int/*min*/, int/*max*/> autoScaleInfo, bool specialMin, bool specialMax);
+		std::tuple<bool, int/*min*/, int/*max*/> autoScaleInfo, bool specialMin, bool specialMax, std::array<int, 4>  picturesToDraw);
 	void setSliderPositions(UINT min, UINT max);
 	void drawBackground(CDC* easel);
 	void drawGrid(CDC* easel, CBrush* brush);
@@ -28,7 +28,7 @@ public:
 	void handleScroll(int id, UINT nPos);
 	void handleEditChange(int id);
 	void updatePalette(HPALETTE pallete);
-	void redrawImage(CDC* easel);
+	void redrawImage(CDC* easel, std::array<int, 4>  picturesToDraw);
 	void setActive(bool activeState);
 	bool isActive();
 	std::pair<UINT, UINT> getSliderLocations();
