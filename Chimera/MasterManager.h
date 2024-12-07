@@ -38,6 +38,7 @@ class MasterManager
 		void unPause();
 		bool getIsPaused();
 		void abort();
+		void abortIdler();
 		std::string getErrorMessage(int errorCode);
 		void loadMasterScript(std::string scriptAddress);
 

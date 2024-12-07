@@ -99,6 +99,7 @@ public:
 	void handleSaveConfig(std::ofstream& saveFile);
 	void handleOpeningConfig(std::ifstream& configFile, int versionMajor, int versionMinor);
 	void abortMasterThread();
+	void abortIdlerThread();
 	Communicator* getComm();
 	std::string getSystemStatusString();
 

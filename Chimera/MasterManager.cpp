@@ -1028,6 +1028,13 @@ void MasterManager::abort()
 	//experimentIsRunning = false; 
 }
 
+void MasterManager::abortIdler()
+{
+	std::lock_guard<std::mutex> locker(abortLock);
+	killIdler = true;
+	//experimentIsRunning = false; 
+}
+
 
 void MasterManager::loadMasterScript(std::string scriptAddress)
 {
