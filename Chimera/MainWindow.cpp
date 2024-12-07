@@ -979,11 +979,10 @@ void MainWindow::abortMasterThread()
 
 void MainWindow::abortIdlerThread()
 {
-	if (masterThreadManager.idlerIsRunning)
+	if (masterThreadManager.idlerStatus())
 	{
 		masterThreadManager.abortIdler();
 	}
-	else
 }
 
 bool MainWindow::experimentIsPaused()

@@ -379,6 +379,7 @@ namespace commonFunctions
 				{
 					bool qcmosAborted = false;
 					masterAborted = false;
+					abortIdler(mainWin, auxWin);
 
 					mainWin->stopRearranger( );
 					camWin->wakeRearranger( );
