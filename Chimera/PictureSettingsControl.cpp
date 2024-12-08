@@ -372,7 +372,7 @@ void PictureSettingsControl::OnDisplayCheckboxClicked(int picInc, qcmosCamera* q
 	int idx = 0;
 	for (int i = 0; i<totalMaxPictures; i++)
 	{
-		if (displayChoice[picInc].GetCheck() == 1)
+		if (displayChoice[i].GetCheck() == 1)
 		{
 			qcmosObj->picturesToDraw[idx] = i;
 			idx++;

@@ -23,7 +23,7 @@ void PictureManager::setAlwaysShowGrid(bool showOption, CDC* easel)
 		}
 		for (auto& pic : pictures)
 		{
-			pic.drawGrid(easel, gridBrush);
+			//pic.drawGrid(easel, gridBrush);
 		}
 	}
 }
@@ -34,21 +34,32 @@ void PictureManager::redrawPictures(CDC* easel, coordinate selectedLocation, std
 {
 	if (!pictures[1].isActive())
 	{
-		pictures[0].redrawImage(easel, picturesToDraw);
-		if (alwaysShowGrid)
+		int indexToDraw = findIndex(picturesToDraw, 0);
+		if (indexToDraw != -1)
 		{
-			pictures[0].drawGrid(easel, gridBrush);
+			pictures[0].redrawImage(easel, picturesToDraw);
+			if (alwaysShowGrid)
+			{
+				pictures[0].drawGrid(easel, gridBrush);
+			}
+			drawDongles(easel, selectedLocation, analysisLocs, gridInfo);
+			return;
 		}
-		drawDongles(easel, selectedLocation, analysisLocs, gridInfo);
 		return;
 	}
+	int pictureNumber = 0;
 	for (auto& pic : pictures)
 	{
-		pic.redrawImage(easel,picturesToDraw);
-		if (alwaysShowGrid)
+		int indexToDraw = findIndex(picturesToDraw, pictureNumber);
+		if (indexToDraw != -1)
 		{
-			pic.drawGrid(easel, gridBrush);
+			pic.redrawImage(easel,picturesToDraw);
+			if (alwaysShowGrid)
+			{
+				pic.drawGrid(easel, gridBrush);
+			}
 		}
+		pictureNumber ++;
 	}
 	drawDongles(easel, selectedLocation, analysisLocs, gridInfo);
 }
@@ -187,10 +198,15 @@ void PictureManager::drawPicture(CDC* deviceContext, int pictureNumber, std::vec
 		pictures[pictureNumber].drawPicture(deviceContext, picData, autoScaleInfo, specialLessThanMin,
 		specialGreaterThanMax, picturesToDraw);
 	}
-	if (alwaysShowGrid)
-	{
-		pictures[pictureNumber].drawGrid(deviceContext, gridBrush);
-	}
+	//else
+	//{
+	//	pictures[indexToDraw].drawPicture(deviceContext, picData, autoScaleInfo, specialLessThanMin,
+	//	specialGreaterThanMax, picturesToDraw);
+	//}
+	//if (alwaysShowGrid)
+	//{
+	//	pictures[pictureNumber].drawGrid(deviceContext, gridBrush);
+	//}
 }
 
 

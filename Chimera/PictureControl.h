@@ -70,4 +70,5 @@ private:
 	//
 	Control<CEdit> editMax;
 	Control<CEdit> editMin;
+	int findIndex(std::array<int, 4> arr, int element);
 };

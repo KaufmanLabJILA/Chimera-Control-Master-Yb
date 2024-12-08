@@ -350,6 +350,15 @@ void PictureControl::resetStorage()
 {
 	mostRecentImage = std::vector<long>{};
 }
+
+int PictureControl::findIndex(std::array<int, 4> arr, int element) {
+    for (int i = 0; i < 4; ++i) {
+        if (arr[i] == element) {
+            return i; // Return the index if the element is found
+        }
+    }
+    return -1; // Return -1 if the element is not found
+}
 /*
  * draw the picture that the camera took. The camera's data is inputted as a 1D vector of long here. The control needs
  * the camera window context since there's no direct control associated with the picture itself. Could probably change

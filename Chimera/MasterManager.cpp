@@ -935,7 +935,7 @@ void MasterManager::startIdlerThread(MasterThreadInput* input)
 	if (input->runMaster)
 	{
 		// for the master script we use a fixed file called idler.mscript. Change this when you migrate to samatha
-		input->idlerScriptAddress = "B:\\Yb heap\\Experiment_code_Yb\\Chimera-Control-Master\\Configurations\\Yb_tests\\Idler.mScript";
+		input->idlerScriptAddress = "C:\\Users\\klab\\Documents\\Chimera-Control-Master\\Configurations\\Yb_tweezers_2107\\Idler.mScript";
 		loadMasterScript(input->idlerScriptAddress);
 		input->gmoog->loadMoogScript(input->gmoogScriptAddress);
 	}
