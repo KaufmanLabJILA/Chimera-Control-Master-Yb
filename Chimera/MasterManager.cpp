@@ -893,6 +893,12 @@ bool MasterManager::runningStatus()
 	return experimentIsRunning;
 }
 
+bool MasterManager::idlerStatus()
+{
+	return idlerIsRunning;
+}
+
+
 /***
  * this function is very similar to startExperimentThread but instead of getting anything from the current profile, it
  * knows exactly where to look for the MOT profile. This is currently hard-coded.
@@ -929,7 +935,7 @@ void MasterManager::startIdlerThread(MasterThreadInput* input)
 	if (input->runMaster)
 	{
 		// for the master script we use a fixed file called idler.mscript. Change this when you migrate to samatha
-		input->idlerScriptAddress = "C:\\Users\\klab\\Documents\\Chimera-Control-Master\\Configurations\\Yb_tweezers_2107\\Idler.mScript";
+		input->idlerScriptAddress = "B:\\Yb heap\\Experiment_code_Yb\\Chimera-Control-Master\\Configurations\\Yb_tests\\Idler.mScript";
 		loadMasterScript(input->idlerScriptAddress);
 		input->gmoog->loadMoogScript(input->gmoogScriptAddress);
 	}
@@ -1025,6 +1031,13 @@ void MasterManager::abort()
 {
 	std::lock_guard<std::mutex> locker(abortLock);
 	isAborting = true;
+	//experimentIsRunning = false; 
+}
+
+void MasterManager::abortIdler()
+{
+	std::lock_guard<std::mutex> locker(abortLock);
+	killIdler = true;
 	//experimentIsRunning = false; 
 }
 

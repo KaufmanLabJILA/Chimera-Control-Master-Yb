@@ -41,6 +41,7 @@ BEGIN_MESSAGE_MAP(CameraWindow, CDialog)
 	ON_COMMAND_RANGE(MENU_ID_RANGE_BEGIN, MENU_ID_RANGE_END, &CameraWindow::passCommandsAndSettings)
 	//ON_COMMAND(ID_RUNMENU_RUNCAMERA, &CameraWindow::passPictureSettings)
 	ON_COMMAND_RANGE(PICTURE_SETTINGS_ID_START, PICTURE_SETTINGS_ID_END, &CameraWindow::passPictureSettings)
+	ON_COMMAND_RANGE(DISPLAY_SETTINGS_ID_START, DISPLAY_SETTINGS_ID_END, &CameraWindow::passPictureSettings)
 	//ON_CONTROL_RANGE( CBN_SELENDOK, PICTURE_SETTINGS_ID_START, PICTURE_SETTINGS_ID_END, 
 					  //&CameraWindow::passPictureSettings )
 	// these ids all go to the same function.
@@ -337,7 +338,7 @@ unsigned __stdcall CameraWindow::frameGrabberThread(void* voidPtr)
 									pictureNumber / currentSettings.picsPerRepetition,
 									currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-								input->cameraWindow->pics.drawPicture(drawer, pictureNumber % currentSettings.picsPerRepetition, picData.back(), minMax);
+								input->cameraWindow->pics.drawPicture(drawer, pictureNumber % currentSettings.picsPerRepetition, picData.back(), minMax, input->qcmos->picturesToDraw);
 
 								input->cameraWindow->timer.update(pictureNumber / currentSettings.picsPerRepetition, currentSettings.repetitionsPerVariation,
 									currentSettings.totalVariations, currentSettings.picsPerRepetition);
@@ -351,7 +352,7 @@ unsigned __stdcall CameraWindow::frameGrabberThread(void* voidPtr)
 									pictureNumber / currentSettings.picsPerRepetition,
 									currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-								input->cameraWindow->pics.drawPicture(drawer, 0, picData.back(), minMax);
+								input->cameraWindow->pics.drawPicture(drawer, 0, picData.back(), minMax, input->qcmos->picturesToDraw);
 
 								input->cameraWindow->timer.update(pictureNumber / currentSettings.picsPerRepetition, currentSettings.repetitionsPerVariation,
 									currentSettings.totalVariations, currentSettings.picsPerRepetition);
@@ -371,7 +372,7 @@ unsigned __stdcall CameraWindow::frameGrabberThread(void* voidPtr)
 										currentSettings.imageSettings.height, pictureNumber / currentSettings.picsPerRepetition,
 										currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-									input->cameraWindow->pics.drawPicture(drawer, counter, data, minMax);
+									input->cameraWindow->pics.drawPicture(drawer, counter, data, minMax, input->qcmos->picturesToDraw);
 									input->cameraWindow->pics.drawDongles(drawer, input->cameraWindow->selectedPixel, input->cameraWindow->analysisHandler.getAnalysisLocs(), input->cameraWindow->analysisHandler.getAtomGrid());
 									counter++;
 								}
@@ -491,7 +492,7 @@ LRESULT CameraWindow::onCameraProgress(WPARAM wParam, LPARAM lParam)
 					pictureNumber / currentSettings.picsPerRepetition,
 					currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-				pics.drawPicture(drawer, pictureNumber % currentSettings.picsPerRepetition, picData.back(), minMax);
+				pics.drawPicture(drawer, pictureNumber % currentSettings.picsPerRepetition, picData.back(), minMax, qcmos.picturesToDraw);
 
 				timer.update(pictureNumber / currentSettings.picsPerRepetition, currentSettings.repetitionsPerVariation,
 					currentSettings.totalVariations, currentSettings.picsPerRepetition);
@@ -505,7 +506,7 @@ LRESULT CameraWindow::onCameraProgress(WPARAM wParam, LPARAM lParam)
 					pictureNumber / currentSettings.picsPerRepetition,
 					currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-				pics.drawPicture(drawer, 0, picData.back(), minMax);
+				pics.drawPicture(drawer, 0, picData.back(), minMax, qcmos.picturesToDraw);
 
 				timer.update(pictureNumber / currentSettings.picsPerRepetition, currentSettings.repetitionsPerVariation,
 					currentSettings.totalVariations, currentSettings.picsPerRepetition);
@@ -525,7 +526,7 @@ LRESULT CameraWindow::onCameraProgress(WPARAM wParam, LPARAM lParam)
 						currentSettings.imageSettings.height, pictureNumber / currentSettings.picsPerRepetition,
 						currentSettings.totalPicsInExperiment / currentSettings.picsPerRepetition);
 
-					pics.drawPicture(drawer, counter, data, minMax);
+					pics.drawPicture(drawer, counter, data, minMax, qcmos.picturesToDraw);
 					pics.drawDongles(drawer, selectedPixel, analysisHandler.getAnalysisLocs(), analysisHandler.getAtomGrid());
 					counter++;
 				}
@@ -788,7 +789,7 @@ void CameraWindow::OnRButtonUp(UINT stuff, CPoint clickLocation)
 			{
 				analysisHandler.handlePictureClick(loc);
 				pics.redrawPictures(dc, selectedPixel, analysisHandler.getAnalysisLocs(),
-					analysisHandler.getAtomGrid());
+					analysisHandler.getAtomGrid(), qcmos.picturesToDraw);
 			}
 		}
 		else
@@ -798,7 +799,7 @@ void CameraWindow::OnRButtonUp(UINT stuff, CPoint clickLocation)
 			{
 				selectedPixel = box;
 				pics.redrawPictures(dc, selectedPixel, analysisHandler.getAnalysisLocs(),
-					analysisHandler.getAtomGrid());
+					analysisHandler.getAtomGrid() , qcmos.picturesToDraw);
 			}
 		}
 	}
@@ -938,7 +939,7 @@ void CameraWindow::OnSize(UINT nType, int cx, int cy)
 	CDC* dc = GetDC();
 	try
 	{
-		pics.redrawPictures(dc, selectedPixel, analysisHandler.getAnalysisLocs(), analysisHandler.getAtomGrid());
+		pics.redrawPictures(dc, selectedPixel, analysisHandler.getAnalysisLocs(), analysisHandler.getAtomGrid(), qcmos.picturesToDraw);
 	}
 	catch (Error& err)
 	{

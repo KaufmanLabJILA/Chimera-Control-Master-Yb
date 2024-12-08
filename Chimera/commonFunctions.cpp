@@ -142,6 +142,7 @@ namespace commonFunctions
 				{
 					bool qcmosAborted = false;
 					masterAborted = false;
+					abortIdler(mainWin, auxWin);
 
 					mainWin->stopRearranger();
 					camWin->wakeRearranger();
@@ -378,6 +379,7 @@ namespace commonFunctions
 				{
 					bool qcmosAborted = false;
 					masterAborted = false;
+					abortIdler(mainWin, auxWin);
 
 					mainWin->stopRearranger( );
 					camWin->wakeRearranger( );
@@ -1077,6 +1079,12 @@ namespace commonFunctions
 	void abortMaster( MainWindow* mainWin, AuxiliaryWindow* auxWin )
 	{
 		mainWin->abortMasterThread();
+		auxWin->handleAbort();
+	}
+
+	void abortIdler( MainWindow* mainWin, AuxiliaryWindow* auxWin )
+	{
+		mainWin->abortIdlerThread();
 		auxWin->handleAbort();
 	}
 

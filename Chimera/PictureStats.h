@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include "Control.h"
+#include "Constants.h"
 
 // contains experimentally calibrated conversion factors. See the onenote section on the camera
 // for more conversion factors and notes on the calibration.
@@ -47,12 +48,12 @@ class PictureStats
 		Control<CStatic> pictureStatsHeader;
 		Control<CStatic> repetitionIndicator;
 		std::array<Control<CStatic>, 5> collumnHeaders;
-		std::array<Control<CStatic>, 4> picNumberIndicators;
-		std::array<Control<CStatic>, 4> maxCounts;
-		std::array<Control<CStatic>, 4> minCounts;
+		std::array<Control<CStatic>, totalMaxPictures> picNumberIndicators;
+		std::array<Control<CStatic>, totalMaxPictures> maxCounts;
+		std::array<Control<CStatic>, totalMaxPictures> minCounts;
 		// average counts in the picture.
-		std::array<Control<CStatic>, 4> avgCounts;
-		std::array<Control<CStatic>, 4> selCounts;
+		std::array<Control<CStatic>, totalMaxPictures> avgCounts;
+		std::array<Control<CStatic>, totalMaxPictures> selCounts;
 
 }
 ;

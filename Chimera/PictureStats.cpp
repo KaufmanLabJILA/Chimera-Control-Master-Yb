@@ -33,7 +33,7 @@ void PictureStats::initialize( POINT& pos, CWnd* parent, int& id, cToolTips& too
 		control.fontType = SmallFont;
 		pos.y += 25;
 	}
-	pos.y -= 125;
+	pos.y -= 25*(totalMaxPictures+1);
 
 	/// Max Count Edits
 	// Max Count Display 742 - 480 )/2 = 131 
@@ -50,7 +50,7 @@ void PictureStats::initialize( POINT& pos, CWnd* parent, int& id, cToolTips& too
 		pos.y += 25;
 	}
 	// back to top.
-	pos.y -= 125;
+	pos.y -= 25*(totalMaxPictures+1);
 	/// Min Counts
 	// Min Count Display	
 	collumnHeaders[2].sPos = { pos.x + 108, pos.y, pos.x + 162, pos.y + 25 };
@@ -65,7 +65,7 @@ void PictureStats::initialize( POINT& pos, CWnd* parent, int& id, cToolTips& too
 		control.fontType = SmallFont;
 		pos.y += 25;
 	}
-	pos.y -= 125;
+	pos.y -= 25*(totalMaxPictures+1);
 	/// Average Counts
 	collumnHeaders[3].sPos = { pos.x + 162, pos.y, pos.x + 216, pos.y + 25 };
 	collumnHeaders[3].Create( "Avg:", NORM_STATIC_OPTIONS, collumnHeaders[3].sPos, parent, id++ );
@@ -80,7 +80,7 @@ void PictureStats::initialize( POINT& pos, CWnd* parent, int& id, cToolTips& too
 		pos.y += 25;
 	}
 
-	pos.y -= 125;
+	pos.y -= 25*(totalMaxPictures+1);
 	/// Selection Counts
 	collumnHeaders[4].sPos = { pos.x + 216, pos.y, pos.x + 272, pos.y + 25 };
 	collumnHeaders[4].Create( "Sel:", NORM_STATIC_OPTIONS, collumnHeaders[4].sPos, parent, id++ );

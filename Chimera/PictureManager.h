@@ -6,6 +6,7 @@
 class PictureManager
 {
 public:
+	
 	void handleNewConfig(std::ofstream& newFile);
 	void handleSaveConfig(std::ofstream& saveFile);
 	void handleOpenConfig(std::ifstream& configFile, int versionMajor, int versionMinor);
@@ -19,13 +20,13 @@ public:
 	void setPalletes(std::array<int, 4> palleteIds);
 	// draw pictures...
 	void drawPicture(CDC* deviceContext, int pictureNumber, std::vector<long> picData,
-		std::pair<UINT, UINT> minMaxPair);
+		std::pair<UINT, UINT> minMaxPair, std::array<int, 4>  picturesToDraw);
 	void drawDongles(CDC* dc, coordinate selectedLocation, std::vector<coordinate> analysisLocs, atomGrid gridInfo);
 	void createPalettes(CDC* dc);
 	void handleEditChange(UINT id);
 	void setAlwaysShowGrid(bool showOption, CDC* easel);
 	void redrawPictures(CDC* easel, coordinate selectedLocation, std::vector<coordinate> analysisLocs,
-		atomGrid gridInfo);
+		atomGrid gridInfo, std::array<int, 4>  picturesToDraw);
 	void setPictureSliders(CWnd* parent);
 	void setNumberPicturesActive(int numberActive, bool picsPerRepManual);
 	coordinate handleRClick(CPoint clickLocation);
@@ -37,6 +38,8 @@ public:
 	void setSettings(std::array<int, 4> maxCounts, std::array<int, 4>  minCounts, bool autoscale,
 		bool specialGreater, bool specialLess, bool showGrid);
 	void resetPictureStorage();
+	int findIndex(std::array<int, 4> arr, int element);
+
 
 private:
 	std::array<PictureControl, 4> pictures;

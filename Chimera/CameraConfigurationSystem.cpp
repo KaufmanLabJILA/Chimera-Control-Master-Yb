@@ -9,6 +9,7 @@
 #include "reorganizeWindow.h"
 #include "Commctrl.h"
 #include "CameraWindow.h"
+#include "Constants.h"
 
 
 CameraConfigurationSystem::CameraConfigurationSystem(std::string fileSystemPath)
@@ -191,7 +192,7 @@ qcmosRunSettings CameraConfigurationSystem::openConfiguration(std::string config
 	//configurationOpenFile >> ePlottingFrequency;
 	//SendMessage(ePlottingFrequencyDisp.hwnd, WM_SETTEXT, 0, (LPARAM)str(ePlottingFrequency).c_str());
 	//SendMessage(ePlottingFrequencyEdit.hwnd, WM_SETTEXT, 0, (LPARAM)str(ePlottingFrequency).c_str());
-	std::array<int, 4> thresholds;
+	std::array<int, totalMaxPictures> thresholds;
 	if (version == "v1.1")
 	{
 		configurationOpenFile >> thresholds[0];

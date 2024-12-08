@@ -11,8 +11,8 @@
 // build and debug other aspects of the program.
 
 //#define MASTER_COMPUTER
-#define DEEP_THOUGHT
-//#define SAMANTHA
+//#define DEEP_THOUGHT
+#define SAMANTHA
 //#define ADAMS_LAB
 // #define DESKTOP_COMPUTER
 //#define SALAMIS_TABLET
@@ -116,6 +116,9 @@ const std::string AWG_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAUL
 const std::string GMOOG_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAULT_GMOOG_SCRIPT.moogScript";
 const std::string DDS_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAULT_DDS_SCRIPT.ddsScript";
 
+//total pictures
+const int totalMaxPictures = 8;
+
 //File that updates for EDAC
 const std::string EDAC_START_FILE_LOCATION = PROJECT_LOCATION + "\\Chimera\\EDACFile.txt";
 #endif
@@ -178,7 +181,13 @@ const std::string EDAC_START_FILE_LOCATION = PROJECT_LOCATION + "\\Chimera\\EDAC
 #define UWAVE_SAFEMODE true
 #define UWAVE_AGILENT_USB_ADDRESS ""
 
-const std::string PROJECT_LOCATION = "B:\\Yb heap\\Experiment_code_Yb\\Chimera-Control-Master\\";
+//PicoScrew
+const bool PICOSCREW_SAFEMODE = true;
+const std::string PICOSCREW_KEY = "8742 100784";
+const unsigned PICOSCREW_NUM = 4;
+const std::vector<bool> PICOSCREW_CONNECTED = { true, true, true, true };
+
+const std::string PROJECT_LOCATION = "B:\\Yb heap\\Experiment_code_Yb\\Yb Chimera\\Chimera-Control-Master-Yb\\Chimera\\";
 const std::string DATABASE_LOCATION = "B:\\Yb heap\\Yb_data\\";
 const std::string PYTHON_CODE_LOCATION = "B:\\Yb heap\\Experiment_code_Yb\\Chimera-Control-Master\\";
 const std::string MASKS_FILE_LOCATION = PROJECT_LOCATION + "\\Image Processing\\" + "masks.npy";
@@ -188,6 +197,8 @@ const std::string SUBPIXELMASKS_FILE_LOCATION = PROJECT_LOCATION + "\\Image Proc
 const std::string SUBPIXELLUT_FILE_LOCATION = PROJECT_LOCATION + "\\Tweezer LUT\\" + "subpixelLUT.npy";
 const std::string TWEEZER_AMPLITUDE_LUT_FILE_LOCATION = PROJECT_LOCATION + "\\Tweezer LUT\\" + "ampLUT.npy";
 const std::string TWEEZER_FREQUENCY_LUT_FILE_LOCATION = PROJECT_LOCATION + "\\Tweezer LUT\\" + "freqLUT.npy";
+const std::string TWEEZER_AMPLITUDE_LUT_FILE_LOCATION2 = PROJECT_LOCATION + "\\Tweezer LUT\\" + "ampLUT2.npy";
+const std::string TWEEZER_FREQUENCY_LUT_FILE_LOCATION2 = PROJECT_LOCATION + "\\Tweezer LUT\\" + "freqLUT2.npy";
 // same as debug output location but with forward slashes for ease of use in python
 const std::string PYTHON_INPUT_LOCATION = "B:\\Yb heap\\Experiment_code_Yb\\Chimera-Control-Master\\Debug-Output";
 const std::string PLOT_FILES_SAVE_LOCATION = PROJECT_LOCATION + "Plotting";
@@ -208,6 +219,12 @@ const std::string MOOG_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAU
 const std::string AWG_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAULT_AWG_SCRIPT.awgScript";
 const std::string GMOOG_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAULT_GMOOG_SCRIPT.moogScript";
 const std::string DDS_TEST_ADDRESS = PROJECT_LOCATION + "Default Scripts\\DEFAULT_DDS_SCRIPT.ddsScript";
+
+//total pictures
+const int totalMaxPictures = 8;
+
+//File that updates for EDAC
+const std::string EDAC_START_FILE_LOCATION = PROJECT_LOCATION + "\\Chimera\\EDACFile.txt";
 #endif
 
 //Moog constants
@@ -346,8 +363,10 @@ const char * const SERVER_ADDRESS = "192.168.236.1";
 #define TEMPERATURE_SETTINGS_ID_END 23059
 #define TEMPERATURE_LABEL_ID_START 23060
 #define TEMPERATURE_LABEL_ID_END 23063
-#define PICTURE_SETTINGS_ID_START 23010 
-#define PICTURE_SETTINGS_ID_END 23038
+#define PICTURE_SETTINGS_ID_START 23010
+#define DISPLAY_SETTINGS_ID_START 26010
+#define DISPLAY_SETTINGS_ID_END 26020 
+#define PICTURE_SETTINGS_ID_END 23042
 // #define IDC_SET_IMAGE_PARAMETERS_BUTTON 23045
 #define IDC_SET_REPETITONS_PER_VARIATION_BUTTON 23046
 #define IDC_SET_VARIATION_NUMBER 23047
@@ -359,6 +378,8 @@ const char * const SERVER_ADDRESS = "192.168.236.1";
 #define IDC_PICTURE_3_MAX_EDIT 23053
 #define IDC_PICTURE_4_MIN_EDIT 23054
 #define IDC_PICTURE_4_MAX_EDIT 23055
+#define IDC_PICTURE_5_MIN_EDIT 23056
+#define IDC_PICTURE_5_MAX_EDIT 23057
 //
 #define IDC_BEGINNING_DIALOG_RICH_EDIT 100
 //

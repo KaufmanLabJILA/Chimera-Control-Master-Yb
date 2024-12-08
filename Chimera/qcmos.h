@@ -160,6 +160,7 @@ public:
 	//void initializeClass( Communicator* comm, std::vector<std::chrono::time_point<std::chrono::high_resolution_clock>>* imageTimes );
 	void initializeClass(Communicator* comm, chronoTimes* imageTimes);
 	std::string getSystemInfo();
+	std::array<int, 4> picturesToDraw = {0,1,2,3};
 
 private:
 	/// These are official settings and are the final say on what the camera does. Some unofficial 

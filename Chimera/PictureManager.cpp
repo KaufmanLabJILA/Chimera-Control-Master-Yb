@@ -30,11 +30,11 @@ void PictureManager::setAlwaysShowGrid(bool showOption, CDC* easel)
 
 
 void PictureManager::redrawPictures(CDC* easel, coordinate selectedLocation, std::vector<coordinate> analysisLocs,
-	atomGrid gridInfo)
+	atomGrid gridInfo, std::array<int, 4>  picturesToDraw)
 {
 	if (!pictures[1].isActive())
 	{
-		pictures[0].redrawImage(easel);
+		pictures[0].redrawImage(easel, picturesToDraw);
 		if (alwaysShowGrid)
 		{
 			pictures[0].drawGrid(easel, gridBrush);
@@ -44,7 +44,7 @@ void PictureManager::redrawPictures(CDC* easel, coordinate selectedLocation, std
 	}
 	for (auto& pic : pictures)
 	{
-		pic.redrawImage(easel);
+		pic.redrawImage(easel,picturesToDraw);
 		if (alwaysShowGrid)
 		{
 			pic.drawGrid(easel, gridBrush);
@@ -167,17 +167,32 @@ void PictureManager::setSpecialGreaterThanMax(bool option)
 }
 
 
+int PictureManager::findIndex(std::array<int, 4> arr, int element) {
+    for (int i = 0; i < 4; ++i) {
+        if (arr[i] == element) {
+            return i; // Return the index if the element is found
+        }
+    }
+    return -1; // Return -1 if the element is not found
+}
+
+
 void PictureManager::drawPicture(CDC* deviceContext, int pictureNumber, std::vector<long> picData,
-	std::pair<UINT, UINT> minMaxPair)
+	std::pair<UINT, UINT> minMaxPair, std::array<int, 4>  picturesToDraw)
 {
 	std::tuple<bool, int, int> autoScaleInfo = std::make_tuple(autoScalePictures, minMaxPair.first, minMaxPair.second);
-	pictures[pictureNumber].drawPicture(deviceContext, picData, autoScaleInfo, specialLessThanMin,
-		specialGreaterThanMax);
+	int indexToDraw = findIndex(picturesToDraw, pictureNumber);
+	if (indexToDraw != -1)
+	{
+		pictures[pictureNumber].drawPicture(deviceContext, picData, autoScaleInfo, specialLessThanMin,
+		specialGreaterThanMax, picturesToDraw);
+	}
 	if (alwaysShowGrid)
 	{
 		pictures[pictureNumber].drawGrid(deviceContext, gridBrush);
 	}
 }
+
 
 void PictureManager::handleScroll(UINT nSBCode, UINT nPos, CScrollBar* scrollbar)
 {

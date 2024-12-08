@@ -4,6 +4,7 @@
 #include <array>
 #include <vector>
 #include "cameraPositions.h"
+#include "Constants.h"
 ;
 class qcmosCamera;
 class CameraSettingsControl;
@@ -24,27 +25,30 @@ public:
 	void initialize(cameraPositions& pos, CWnd* parent, int& id);
 	void handleOptionChange(int id, qcmosCamera* qcmosObj);
 	void disablePictureControls(int pic);
+	void OnDisplayCheckboxClicked(int picInc, qcmosCamera* qcmosObj);
 	void enablePictureControls(int pic);
 	void setExposureTimes(std::vector<double>& times, qcmosCamera* qcmosObj);
 	void setExposureTimes(qcmosCamera* qcmosObj);
 	std::array<int, 4> getPictureColors();
 	std::vector<double> getUsedExposureTimes();
-	std::array<int, 4> getThresholds();
+	std::array<int, totalMaxPictures> getThresholds();
 	CBrush* colorControls(int idNumber, CDC* colorer, brushMap brushes, rgbMap rgbs);
 	void confirmAcquisitionTimings();
 	//void setPicturesPerExperiment(UINT pics, qcmosCamera* qcmosObj);
-	void setThresholds(std::array<int, 4> thresholds);
+	void setThresholds(std::array<int, totalMaxPictures> thresholds);
 	void rearrange(std::string cameraMode, std::string triggerMode, int width, int height, fontMap fonts);
 	UINT getPicsPerRepetition();
 	void updateSettings();
 	void setUnofficialPicsPerRep(UINT picNum, qcmosCamera* qcmosObj);
 	void setPicsPerRepManual();
 	BOOL picsPerRepManual;
+	int selectedDisplayCount;
+
 private:
 	CameraSettingsControl* parentSettingsControl;
 	std::array<int, 4> colors;
 	std::vector<double> exposureTimesUnofficial;
-	std::array<int, 4> thresholds;
+	std::array<int, totalMaxPictures> thresholds;
 	// This variable is used by this control and communicated to the andor object, but is not directly accessed
 	// while the main camera control needs to figure out how many pictures per repetition there are.
 	UINT picsPerRepetitionUnofficial;
@@ -55,12 +59,14 @@ private:
 	Control<CStatic> exposureLabel;
 	Control<CStatic> thresholdLabel;
 	Control<CStatic> colormapLabel;
+	Control<CStatic> displayLabel;
 	// 
-	std::array<Control<CButton>, 4> totalNumberChoice;
-	std::array<Control<CStatic>, 4> pictureNumbers;
-	std::array<Control<CEdit>, 4> exposureEdits;
-	std::array<Control<CEdit>, 4> thresholdEdits;
+	std::array<Control<CButton>, totalMaxPictures> totalNumberChoice;
+	std::array<Control<CStatic>, totalMaxPictures> pictureNumbers;
+	std::array<Control<CEdit>, totalMaxPictures> exposureEdits;
+	std::array<Control<CEdit>, totalMaxPictures> thresholdEdits;
 	std::array<Control<CComboBox>, 4> colormapCombos;
+	std::array<Control<CButton>, totalMaxPictures> displayChoice;
 
 	// Manual image/rep control
 	Control<CStatic> picsPerRepLabel;

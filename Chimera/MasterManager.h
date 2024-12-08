@@ -38,6 +38,7 @@ class MasterManager
 		void unPause();
 		bool getIsPaused();
 		void abort();
+		void abortIdler();
 		std::string getErrorMessage(int errorCode);
 		void loadMasterScript(std::string scriptAddress);
 
@@ -48,6 +49,7 @@ class MasterManager
 		void startIdlerThread(MasterThreadInput* input);
 		void loadMotSettings(MasterThreadInput* input);
 		bool runningStatus();
+		bool idlerStatus();
 		bool isValidWord(std::string word);
 		bool getAbortStatus();
 		bool handleTimeCommands( std::string word, ScriptStream& stream, std::vector<variableType>& vars );

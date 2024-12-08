@@ -276,7 +276,7 @@ void CameraSettingsControl::cameraIsOn(bool state)
 }
 
 
-std::array<int, 4> CameraSettingsControl::getThresholds()
+std::array<int, totalMaxPictures> CameraSettingsControl::getThresholds()
 {
 	return picSettingsObj.getThresholds();
 }

@@ -333,13 +333,13 @@ void PictureControl::setActive(bool activeState)
 /*
  * redraws the background and image.
  */
-void PictureControl::redrawImage(CDC* easel)
+void PictureControl::redrawImage(CDC* easel, std::array<int, 4>  picturesToDraw)
 {
 	drawBackground(easel);
 	if (active && mostRecentImage.size() != 0)
 	{
 		drawPicture(easel, mostRecentImage, mostRecentAutoscaleInfo, mostRecentSpecialMinSetting,
-			mostRecentSpecialMaxSetting);
+			mostRecentSpecialMaxSetting, picturesToDraw);
 	}
 
 	// TODO?
@@ -357,7 +357,7 @@ void PictureControl::resetStorage()
  */
 void PictureControl::drawPicture(CDC* deviceContext, std::vector<long> picData,
 	std::tuple<bool, int/*min*/, int/*max*/> autoScaleInfo, bool specialMin,
-	bool specialMax)
+	bool specialMax, std::array<int, 4>  picturesToDraw)
 {
 	/// initialize various structures
 	mostRecentImage = picData;

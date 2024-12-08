@@ -977,6 +977,14 @@ void MainWindow::abortMasterThread()
 	}
 }
 
+void MainWindow::abortIdlerThread()
+{
+	if (masterThreadManager.idlerStatus())
+	{
+		masterThreadManager.abortIdler();
+	}
+}
+
 bool MainWindow::experimentIsPaused()
 {
 	return masterThreadManager.getIsPaused();

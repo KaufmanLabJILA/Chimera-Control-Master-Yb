@@ -9,6 +9,7 @@
 #include "imageParameters.h"
 #include "GigaMoog.h"
 #include "moveSequence.h"
+#include "Constants.h"
 
 class atomCruncher
 {
@@ -79,7 +80,7 @@ public:
 	std::vector<int> positionCoordinatesY;
 
 	size_t nAtom = 0;
-	std::array<int, 4> thresholds;
+	std::array<int, totalMaxPictures> thresholds;
 	imageParameters imageDims;
 	UINT atomThresholdForSkip = UINT_MAX;
 	std::atomic<bool>* skipNext;
