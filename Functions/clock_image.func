@@ -20,7 +20,7 @@ t += 2/1000
 on: cameratrig
 on: greenimage
 on: axialcool
-t += greentime
+t += greentime2
 off: axialcool
 off: greenimage
 off: cameratrig

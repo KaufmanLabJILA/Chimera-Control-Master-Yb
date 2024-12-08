@@ -21,7 +21,7 @@ freqs 100 clockfreq+5 80 rffreq 200 80 95 95
 
 snapshot 3 %sample and hold for meta/uv
 
-amps  100 0 0 100 uvamp 0 0 100
+amps  100 0 0 100 60 0 0 100
 
 freqs 100 clockfreq+5  80 rffreq 200 80 95 95
 

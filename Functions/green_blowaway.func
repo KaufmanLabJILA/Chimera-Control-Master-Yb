@@ -1,7 +1,7 @@
 % Master-Script See the "?" for info on commands.
-def green_blowaway():
+def green_blowaway(blowaway_freq):
   % insert commands here...
-ddsfreq: dds5 blowawayfreq
+ddsfreq: dds5 blowaway_freq
 t += 5
 ddsamp: dds5 blowawaypower
 t += 5
@@ -17,4 +17,4 @@ t += 5
 ddsamp: dds5 pumppower
 t += 5
 
-off: greenshutter
+off: greenshutter

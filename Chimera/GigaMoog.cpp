@@ -665,7 +665,7 @@ void gigaMoog::writeLoad(MessageSender& ms)
 			{
 				//size_t hardwareChannel = iTweezer % 2 + 8 * (iTweezer / 2);
 				size_t hardwareChannel = (iTweezer * 8) % 48 + (iTweezer * 8) / 48;
-				phase = fmod(180 * pow(iTweezer + 1, 2) / nTweezerX, 360); //this assumes comb of even tones.
+				phase = fmod(180 * pow(iTweezer + 1, 2) / nTweezerX, 360); //phase of the AOD tweezer. this assumes comb of even tones.
 				Message m = Message::make().destination(MessageDestination::KA007)
 					.DAC(MessageDAC::DAC0).channel(hardwareChannel)
 					.setting(MessageSetting::LOADFREQUENCY)
@@ -812,7 +812,7 @@ void gigaMoog::analyzeMoogScript(gigaMoog* moog, std::vector<variableType>& vari
 		}
 
 		freqStepMag = round(freqStepNew.evaluate(variables, variation));
-		if (freqStepMag > 511 || ampStepMag < 0) {
+		if (freqStepMag > 511 || freqStepMag < -511) { //correcting typo
 			thrower("Warning: gmoog frequency step out of range [-512, 511]");
 		}
 

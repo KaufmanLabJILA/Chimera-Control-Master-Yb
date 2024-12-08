@@ -4,7 +4,7 @@ def blue_image(blue_time):
 on: blueimageshutter
 
 
-t += 2.6
+t += 3
 pulseon: cameratrig 0.1
 t += 1
 on: blueimage

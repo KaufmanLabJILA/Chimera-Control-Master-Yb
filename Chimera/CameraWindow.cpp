@@ -1180,7 +1180,7 @@ void CameraWindow::prepareAtomCruncher(ExperimentInput& input)
 	input.cruncherInput->skipNext = &skipNext;
 	input.cruncherInput->imageQueue = &imageQueue;
 	try {
-		//loading masks from .npy file
+		//load masks from .npy file
 		cnpy::NpyArray arrMasks = cnpy::npy_load(MASKS_FILE_LOCATION);
 		input.cruncherInput->masks = arrMasks.as_vec<int16>(); //load masks as a flattened list of longs (row major), passing by pointer to first element.
 		input.cruncherInput->nMask = arrMasks.shape[0];
@@ -1514,7 +1514,7 @@ UINT __stdcall CameraWindow::atomCruncherProcedure(void* inputPtr)
 		if (imageCount % input->picsPerRep == 0) //Just always run this and store the measured values on first image. Control whether this gets applied in gmoog. input->autoTweezerOffsetActive
 		{
 			//if (input->nAtom >= 100) //enforce enough atoms for decent single shot signal.
-			if (!AUTOALIGN_SAFEMODE) //always check, due to jumps by 1 lattice spacing.
+			if (!AUTOALIGN_SAFEMODE) //always check, due to jumps by 1 lattice spacing. //Not used in Yb
 			{
 				std::lock_guard<std::mutex> locker(*input->imageLock);
 				input->getTweezerOffset(&(input->gmoog->xPixelOffsetAuto), &(input->gmoog->yPixelOffsetAuto), &(input->gmoog->subpixelIndexOffsetAuto));

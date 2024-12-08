@@ -1,11 +1,15 @@
 % Master-Script See the "?" for info on commands.
-def image(green_time):
+def image_gmc(green_time):
   % insert commands here...
-%on: imageshutter
-ddsamp: dds4 100
-t += 5
-ddsamp: dds6 100
-t += 5
+
+
+
+
+ddsamp: dds4 100  
+t += 5 
+ 
+ddsamp: dds6 100 
+t += 5 
 on: greenshutter
 t += 1
 dac: greenrad greenpower
@@ -16,30 +20,25 @@ pulseon: imgservo 0.001
 
 t += 2/1000
 pulseon: cameratrig 0.1
-%t += 1
 on: greenimage
 on: axialcool
-
-pulseon: scopetrigger 0.1
-
-
 t += green_time
-
-
 off: axialcool
 off: greenimage
 
-%off: cameratrig
 
-%off: imageshutter
-
+on: greenmotshutter
+t += 3
+on: greennarrow
+t += cooltime*1.25
+off: greennarrow
+off: greenmotshutter
 off: greenshutter
 
 
-
-dac: greenrad  0.0
+dac: greenrad 0
 t += 1
-dac: greenaxial  0.0
+dac: greenaxial 0
 t += 1
 ddsamp: dds4 0
 t += 5

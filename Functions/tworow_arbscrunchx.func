@@ -14,31 +14,58 @@ t += 0.5
 dac: tweezerdepth 0.1
 
 on: shutter532
-t += 12
+t += 3
 
 repeat: 2
-
+on: tweezeraod
 pulseon: gmmove 0.00011 %turns on
-t += 1
+t += 3
 
 dacramp: slmdepth img_depth holddepth759  2 
-t += 2 
+t += 2
+
+t += 1
 pulseon: gmmove 0.00011 %move
 t += 6
+
+
+
 dacramp: slmdepth holddepth759  img_depth 2
-t += 2  
+t += 3 
 
 pulseon: gmmove 0.00011 %turn off
-t += 1
+off: tweezeraod
+t += 5
+
+on: greennarrow
+t += cooltime*2
+off: greennarrow
+
+end
+
+%%% filtering %%%
+%pulseon: gmmove 0.00011 
+%t += 1
+%dacramp: slmdepth img_depth holddepth759  2 
+%t += 2.1 
+%on: slmsamplehold
+%t += 0.1
+%off: tweezerslm
+%t += 10
+%on: tweezerslm
+%t += 0.1
+%off: slmsamplehold
+%dacramp: slmdepth holddepth759  img_depth 2
+%t += 2.1 
+%pulseon: gmmove 0.00011 
+%t += 1
 
 on: greennarrow
 t += cooltime
 off: greennarrow
 
-end
-
 off: rrsamplehold
-off: tweezeraod
+
 off: shutter532
 off: greenshutter
 off: greenmotshutter
