@@ -8,7 +8,7 @@ t += 2
 on: ioncamera
 on: uvcamera
 on: ionization
-t += 10
+t += 50
 off: ionization
 off: uvcamera
 off: ioncamera

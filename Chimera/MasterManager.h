@@ -65,6 +65,7 @@ class MasterManager
 		void sendZynqCommand(ZynqTCP zynq_tcp, std::string command);
 
 		CWinThread* runningThread;
+		bool killIdler;
 
 	private:
 		timeType loadSkipTime;
@@ -82,7 +83,7 @@ class MasterManager
 		timeType operationTime;
 		bool experimentIsRunning;
 		bool idlerIsRunning;
-		bool killIdler;
+
 		/// task handles
 
 		// Important, these should only be written to by the pause and aborting functions...

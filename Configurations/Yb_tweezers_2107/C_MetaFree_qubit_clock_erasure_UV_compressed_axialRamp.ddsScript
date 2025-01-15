@@ -23,7 +23,7 @@ snapshot 3 %sample and hold for meta/uv
 
 amps  100 0 0 100 70 0 0 100
 
-freqs 100 clockfreq+5  80 rffreq uvfreq 80 95 95
+freqs 100 clockfreq+5  100 rffreq uvfreq 80 95 95
 
 snapshot 4 %no ioncam/no uv/yes meta
 

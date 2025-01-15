@@ -979,8 +979,10 @@ void MainWindow::abortMasterThread()
 
 void MainWindow::abortIdlerThread()
 {
+	idler.killIdler = true;
 	if (masterThreadManager.idlerStatus())
 	{
+		idler.killIdler = true;
 		masterThreadManager.abortIdler();
 	}
 }

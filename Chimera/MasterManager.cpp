@@ -31,6 +31,7 @@ bool MasterManager::getAbortStatus()
 
 UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 {
+	
 	/// initialize various structures 
 	// convert the input to the correct structure. 
 	MasterThreadInput* input = (MasterThreadInput*)voidInput;
@@ -201,7 +202,7 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 
 		}
 
-		variations = 1;
+		int temp_variations = 1;
 
 		//We are going to forcibly set repition Number to be high
 		// input->repetitionNumber = 10000;
@@ -218,7 +219,7 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 		//}
 		// end of WFM's addition
 
-		for (const UINT& variationInc : range(variations))
+		for (const UINT& variationInc : range(1))
 		{
 			// expUpdate("Variation #" + str(variationInc + 1) + "\r\n", input->comm, input->quiet);
 			Sleep(input->debugOptions.sleepTime);
@@ -292,10 +293,11 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 			input->edacs->updateEDACFile(variationInc);
 			input->ddss->writeDDSs(variationInc, skipOption);
 			input->ttls->writeTtlDataToFPGA(variationInc, skipOption);
+			input->idler->killIdler = false;
 			//input->dacs->startDacs(); 
 			Sleep(100);
 			//If thou has cometh this far, might as well make the idler run
-			input->idler->killIdler = false;
+			
 			input->idler->idleSequenceRunning = true;
 			while (!input->idler->killIdler && input->idler->idleSequenceActive)
 			{
@@ -324,6 +326,7 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 					//if (input->settings.saveMakoImages) {
 					//	input->comm->sendSetupMakoFrame();
 					//}
+					input->ttls->wait(20);
 					input->ttls->waitTillFinished(variationInc, skipOption);
 					input->dacs->stopDacs();
 					//if (input->settings.saveMakoImages) {
@@ -357,13 +360,13 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 		input->comm->sendColorBox(Master, 'B');
 
 		//input->thisObj->sendZynqCommand(zynq_tcp, "disableSeq");
-		input->thisObj->sendZynqCommand(zynq_tcp, "lockPLL");
+		//input->thisObj->sendZynqCommand(zynq_tcp, "lockPLL");
 		input->ddss->setDDSsAmpFreq();
 		input->dds->program_default();
 		//input->dacs->setDACsSeq();
 		//input->dacs->zeroDACValues();
 		//input->thisObj->sendZynqCommand(zynq_tcp, "trigger");
-		input->thisObj->sendZynqCommand(zynq_tcp, "armtrigger"); //problematic part
+		//input->thisObj->sendZynqCommand(zynq_tcp, "armtrigger"); //problematic part
 	}
 	catch (Error& exception)
 	{
@@ -390,12 +393,12 @@ UINT __cdecl MasterManager::idlerThreadProcedure(void* voidInput)
 		}
 		//input->thisObj->sendZynqCommand(zynq_tcp, "initExp");
 		//input->thisObj->sendZynqCommand(zynq_tcp, "disableSeq");
-		input->thisObj->sendZynqCommand(zynq_tcp, "lockPLL");
+		//input->thisObj->sendZynqCommand(zynq_tcp, "lockPLL");
 		input->ddss->setDDSsAmpFreq();
 		//input->dacs->setDACsSeq();
 		input->dds->program_default();
 		//input->thisObj->sendZynqCommand(zynq_tcp, "trigger");
-		input->thisObj->sendZynqCommand(zynq_tcp, "armtrigger"); //problematic part
+		//input->thisObj->sendZynqCommand(zynq_tcp, "armtrigger"); //problematic part
 		if (input->settings.saveMakoImages) {
 			input->comm->sendCloseMako();
 		}
@@ -1036,7 +1039,6 @@ void MasterManager::abort()
 
 void MasterManager::abortIdler()
 {
-	std::lock_guard<std::mutex> locker(abortLock);
 	killIdler = true;
 	//experimentIsRunning = false; 
 }

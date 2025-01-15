@@ -20,7 +20,7 @@ pulseon: cameratrig 0.1
 on: greenimage
 on: axialcool
 
-pulseon: scopetrigger 0.1
+%pulseon: scopetrigger 0.1
 
 
 t += green_time

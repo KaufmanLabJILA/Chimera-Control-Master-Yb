@@ -140,37 +140,37 @@ namespace commonFunctions
 			{
 				if (mainWin->idler.idleSequenceRunning)
 				{
-					bool qcmosAborted = false;
-					masterAborted = false;
 					abortIdler(mainWin, auxWin);
+					masterAborted = true;
+					
+					// masterAborted = true;
 
-					mainWin->stopRearranger();
-					camWin->wakeRearranger();
-
-					try
-					{
-						//
-						if (mainWin->masterThreadManager.runningStatus())
-						{
-							commonFunctions::abortMaster(mainWin, auxWin);
-							masterAborted = true;
-						}
-						mainWin->getComm()->sendColorBox(Master, 'B');
-					}
-					catch (Error& err)
-					{
-						mainWin->getComm()->sendError("Abort Master thread exited with Error! Error Message: " + err.whatStr());
-						mainWin->getComm()->sendColorBox(Master, 'R');
-						mainWin->getComm()->sendStatus("Abort Master thread exited with Error!\r\n");
-						mainWin->getComm()->sendTimer("ERROR!");
-					}
+					// try
+					// {
+					// 	//
+					// 	if (mainWin->masterThreadManager.runningStatus())
+					// 	{
+					// 		commonFunctions::abortMaster(mainWin, auxWin);
+					// 		masterAborted = true;
+					// 	}
+					// 	mainWin->getComm()->sendColorBox(Master, 'B');
+					// }
+					// catch (Error& err)
+					// {
+					// 	mainWin->getComm()->sendError("Abort Master thread exited with Error! Error Message: " + err.whatStr());
+					// 	mainWin->getComm()->sendColorBox(Master, 'R');
+					// 	mainWin->getComm()->sendStatus("Abort Master thread exited with Error!\r\n");
+					// 	mainWin->getComm()->sendTimer("ERROR!");
+					// }
 
 				}
+				Sleep(100);
 				ExperimentInput input;
 				camWin->redrawPictures(false);
 
 				try
 				{
+
 					prepareCamera( mainWin, camWin, input );
 					prepareMasterThread( msgID, scriptWin, mainWin, camWin, auxWin, input, false, true, true,true );
 					camWin->preparePlotter(input);
@@ -377,30 +377,11 @@ namespace commonFunctions
 			{
 				if (mainWin->idler.idleSequenceRunning)
 				{
-					bool qcmosAborted = false;
-					masterAborted = false;
 					abortIdler(mainWin, auxWin);
+					masterAborted = true;
 
-					mainWin->stopRearranger( );
-					camWin->wakeRearranger( );
 
-					try
-					{
-						//
-						if ( mainWin->masterThreadManager.runningStatus( ) )
-						{
-							commonFunctions::abortMaster( mainWin, auxWin );
-							masterAborted = true;
-						}
-						mainWin->getComm( )->sendColorBox( Master, 'B' );
-					}
-					catch ( Error& err )
-					{
-						mainWin->getComm( )->sendError( "Abort Master thread exited with Error! Error Message: " + err.whatStr( ) );
-						mainWin->getComm( )->sendColorBox( Master, 'R' );
-						mainWin->getComm( )->sendStatus( "Abort Master thread exited with Error!\r\n" );
-						mainWin->getComm( )->sendTimer( "ERROR!" );
-					}
+					
 
 				}
 				ExperimentInput input;  

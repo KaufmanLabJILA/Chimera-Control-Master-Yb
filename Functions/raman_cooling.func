@@ -4,7 +4,7 @@ def raman_cooling(df_rb1):
 on: greenshutter
 ddsfreq: dds1 100
 t += 5
-repeat: 25
+repeat: 14
 on: op
 t += pumptime
 off: op
