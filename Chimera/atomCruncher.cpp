@@ -1110,10 +1110,10 @@ moveSequence atomCruncher::getRearrangeMoves(std::string rearrangeType) {
 		scrunchXTargetKeep(moveseq);
 		filterReservoir(moveseq);
 	}
-	//else if (rearrangeType == "arbscrunchxLS") {
-	//	scrunchXTarget(moveseq);
-	//	filterReservoir(moveseq);
-	//}
+	else if (rearrangeType == "arbscrunchxlls") {
+		scrunchXTarget(moveseq);
+		filterReservoir(moveseq);
+	}
 	//else if (rearrangeType == "feedback")
 	//{
 	//	feedBack(moveseq);

@@ -309,18 +309,7 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 
 		//step 1: ramp up tones at initial locations and phases
 		for (int channel = 0; channel < 48; channel++) {//TODO: 48 could be changed to 48 if using more tones for rearrangement
-			if (ny > 1 && nx == 1 && channel < 3) //Triple up tones if only a single tone on, assuming y axis not already tripled.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC0[channel];
-				freq = getFreqX(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-				amp = getAmpX(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC0).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(amp).phaseDegrees(0).instantFTW(1).ATWIncr(ampStepMag).stepSequenceID(3 * stepID + 1).FTWIncr(0).phaseJump(1);;
-				ms.enqueue(m);
-			}
-			else if (ny != 0 && nx != 0 && channel < nx) {
+			if (ny != 0 && nx != 0 && channel < nx) {
 				size_t hardwareChannel = hardwareChannelsDAC0[channel];
 				freq = getFreqX(input.moves[stepID].startAOX[channel], input.moves[stepID].startAOY[0]);
 				amp = getAmpX(input.moves[stepID].startAOX[channel], input.moves[stepID].startAOY[0]);
@@ -335,19 +324,7 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 		}
 
 		for (int channel = 0; channel < 48; channel++) {
-			if (nx != 0 && ny == 1 && channel < 3) //Triple up tones if only a single tone on.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC1[channel];
-				freq = getFreqY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-				amp = getAmpY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC1).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(amp).phaseDegrees(0).instantFTW(1).ATWIncr(ampStepMag).stepSequenceID(3 * stepID + 1).FTWIncr(0).phaseJump(1);;
-				ms.enqueue(m);
-			}
-			else if (nx != 0 && ny != 0 && channel < ny) {
+			if (nx != 0 && ny != 0 && channel < ny) {
 				size_t hardwareChannel = hardwareChannelsDAC1[channel];
 				freq = getFreqY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[channel]);
 				amp = getAmpY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[channel]);
@@ -363,25 +340,8 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 
 		//step 2: ramp to new locations
 		for (int channel = 0; channel < 48; channel++) {
-			if (ny > 1 && nx == 1 && channel < 3) //Triple up tones if only a single tone on.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC0[channel];
-				freqPrev = getFreqX(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-				ampPrev = getAmpX(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
 
-				freq = getFreqX(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-				amp = getAmpX(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-
-				ampstep = (amp < ampPrev) ? -ampStepMag : ampStepMag; //Change sign of steps appropriately.
-				freqstep = (freq < freqPrev) ? -freqStepMag : freqStepMag;
-
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC0).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(amp).phaseDegrees(0).instantFTW(0).ATWIncr(ampstep).stepSequenceID(3 * stepID + 1 + 1).FTWIncr(freqstep).phaseJump(0);;
-				ms.enqueue(m);
-			}
-			else if (ny != 0 && nx != 0 && channel < nx)
+			if (ny != 0 && nx != 0 && channel < nx)
 			{
 				size_t hardwareChannel = hardwareChannelsDAC0[channel];
 				freqPrev = getFreqX(input.moves[stepID].startAOX[channel], input.moves[stepID].startAOY[0]);
@@ -402,26 +362,8 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 		}
 
 		for (int channel = 0; channel < 48; channel++) {
-			if (nx != 0 && ny == 1 && channel < 3) //Triple up tones if only a single tone on.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC1[channel];
 
-				freqPrev = getFreqY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-				ampPrev = getAmpY(input.moves[stepID].startAOX[0], input.moves[stepID].startAOY[0]);
-
-				freq = getFreqY(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-				amp = getAmpY(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-
-				ampstep = (amp < ampPrev) ? -ampStepMag : ampStepMag; //Change sign of steps appropriately.
-				freqstep = (freq < freqPrev) ? -freqStepMag : freqStepMag;
-
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC1).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(amp).phaseDegrees(0).instantFTW(0).ATWIncr(ampstep).stepSequenceID(3 * stepID + 1 + 1).FTWIncr(freqstep).phaseJump(0);;
-				ms.enqueue(m);
-			}
-			else if (nx != 0 && ny != 0 && channel < ny)
+			if (nx != 0 && ny != 0 && channel < ny)
 			{
 				size_t hardwareChannel = hardwareChannelsDAC1[channel];
 
@@ -444,17 +386,8 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 
 		//step 3: ramp all tones to 0
 		for (int channel = 0; channel < 48; channel++) {
-			if (ny > 1 && nx == 1 && channel < 3) //Triple up tones if only a single tone on.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC0[channel];
-				freq = getFreqX(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC0).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(0.01).phaseDegrees(0).instantFTW(1).ATWIncr(-ampStepMag).stepSequenceID(3 * stepID + 2 + 1).FTWIncr(0).phaseJump(0);;
-				ms.enqueue(m);
-			}
-			else if (ny != 0 && nx != 0 && channel < nx) {
+
+			if (ny != 0 && nx != 0 && channel < nx) {
 				size_t hardwareChannel = hardwareChannelsDAC0[channel];
 				freq = getFreqX(input.moves[stepID].endAOX[channel], input.moves[stepID].endAOY[0]);
 				Message m = Message::make().destination(MessageDestination::KA007)
@@ -467,17 +400,8 @@ void gigaMoog::writeRearrangeMoves(moveSequence input, MessageSender& ms) {
 		}
 
 		for (int channel = 0; channel < 48; channel++) {
-			if (nx != 0 && ny == 1 && channel < 3) //Triple up tones if only a single tone on.
-			{
-				size_t hardwareChannel = hardwareChannelsDAC1[channel];
-				freq = getFreqY(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[0]);
-				Message m = Message::make().destination(MessageDestination::KA007)
-					.DAC(MessageDAC::DAC1).channel(hardwareChannel)
-					.setting(MessageSetting::MOVEFREQUENCY)
-					.frequencyMHz(freq).amplitudePercent(0.01).phaseDegrees(0).instantFTW(1).ATWIncr(-ampStepMag).stepSequenceID(3 * stepID + 2 + 1).FTWIncr(0).phaseJump(0);;
-				ms.enqueue(m);
-			}
-			else if (nx != 0 && ny != 0 && channel < ny) {
+
+			if (nx != 0 && ny != 0 && channel < ny) {
 				size_t hardwareChannel = hardwareChannelsDAC1[channel];
 				freq = getFreqY(input.moves[stepID].endAOX[0], input.moves[stepID].endAOY[channel]);
 				Message m = Message::make().destination(MessageDestination::KA007)

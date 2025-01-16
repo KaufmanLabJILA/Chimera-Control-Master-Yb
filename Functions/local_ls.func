@@ -1,0 +1,36 @@
+% Master-Script See the "?" for info on commands.
+def local_ls():
+  % insert commands here...
+pulseon: gmmove 0.00011 %turn on 
+t += 0.5
+on: tweezeraod
+dac: tweezerdepth lsdepth532
+t += 0.3
+on: rrsamplehold
+off: tweezeraod
+t += 0.1
+dac: tweezerdepth 0.1
+
+
+on: shutter532
+t += 6
+
+on: tweezeraod
+t += lstime/1000
+%
+dac: slmdepth 0.1
+t += lstime/1000
+off: tweezerslm
+t += lstime/1000
+on: tweezerslm
+dac: slmdepth img_depth
+t += lstime/1000
+off: tweezeraod
+%on: tweezerslm
+
+pulseon: gmmove 0.00011 % turn off  filder array
+t += 0.5
+off: rrsamplehold
+off: shutter532
+t += 5
+
