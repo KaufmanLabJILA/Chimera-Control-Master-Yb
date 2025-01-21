@@ -26,6 +26,7 @@ public:
 	void LightShifting(moveSequence& moveseq, bool centered);
 	void compressX(moveSequence& moveseq);
 	void filterReservoir(moveSequence& moveseq);
+	void initArray(moveSequence& moveseq);
 	void scrunchY(moveSequence& moveseq, bool centered);
 	void scrunchYTarget(moveSequence& moveseq, bool constantMoves);
 	void scrunchYFixedLength(moveSequence& moveseq, int nPerColumn, bool centered);

@@ -1056,6 +1056,32 @@ void  atomCruncher::filterReservoir(moveSequence& moveseq) {
 	moveseq.moves.push_back(single);
 }
 
+void  atomCruncher::initArray(moveSequence& moveseq) {
+	///Place tweezers on all positions to be kept
+	moveSingle single;
+	int ix = 0;
+	for (auto const& channelBoolX : gmoog->initialPositionsX) {
+		if (channelBoolX)
+		{
+			single.startAOX.push_back(ix);
+			single.endAOX.push_back(ix);
+		}
+		ix++;
+	}
+
+	int iy = 0;
+	for (auto const& channelBoolY : gmoog->initialPositionsY) {
+		if (channelBoolY)
+		{
+			single.startAOY.push_back(iy);
+			single.endAOY.push_back(iy);
+		}
+		iy++;
+	}
+
+	moveseq.moves.push_back(single);
+}
+
 moveSequence atomCruncher::getRearrangeMoves(std::string rearrangeType) {
 	// atomCruncher contains gmoog and images. Generate moves based on these.
 	//input->gmoog->initialPositionsX;
@@ -1112,6 +1138,11 @@ moveSequence atomCruncher::getRearrangeMoves(std::string rearrangeType) {
 	}
 	else if (rearrangeType == "arbscrunchxlls") {
 		scrunchXTarget(moveseq);
+		filterReservoir(moveseq);
+	}
+	else if (rearrangeType == "arbscrunchxllsthermal") {
+		scrunchXTarget(moveseq);
+		initArray(moveseq);
 		filterReservoir(moveseq);
 	}
 	//else if (rearrangeType == "feedback")

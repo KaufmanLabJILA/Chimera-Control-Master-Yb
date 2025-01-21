@@ -30,6 +30,9 @@ off: tweezeraod
 
 pulseon: gmmove 0.00011 % turn off  filder array
 t += 0.5
+pulseon: gmmove 0.00011 % turn off  filder array
+t += 0.5
+
 off: rrsamplehold
 off: shutter532
 t += 5

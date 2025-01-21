@@ -17,7 +17,7 @@ on: shutter532
 t += 3
 
 repeat: 2
-on: tweezeraod
+%on: tweezeraod
 pulseon: gmmove 0.00011 %turns on
 t += 3
 
@@ -34,7 +34,7 @@ dacramp: slmdepth holddepth759  img_depth 2
 t += 3 
 
 pulseon: gmmove 0.00011 %turn off
-off: tweezeraod
+%off: tweezeraod
 t += 5
 
 on: greennarrow
